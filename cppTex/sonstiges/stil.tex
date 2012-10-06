@@ -1,0 +1,29 @@
+% sämtliche Änderungen und Anpassungen an das Aussehen
+
+%--- sonstiges --- 
+\onehalfspacing                                            % Zeilenabstand 
+
+%--- Seitenränder ---
+\setlength{\topskip}{\ht\strutbox}                         % behebt Warnung von geometry
+\geometry{paper=a4paper,left=35mm,right=25mm,top=30mm}
+
+%--- Kopfzeile ---
+\pagestyle{scrheadings}
+\renewcommand*{\chapterpagestyle}{scrheadings}             % Kopf und Fußzeilen mit Kapitelanfangsseiten
+\renewcommand{\headfont}{\normalfont}                      % Schriftform der Kopfzeile
+
+%--- Fußzeile ---
+
+%--- Schusterjungen und Hurenkinder vermeiden ---
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+% ---- Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden ---
+%\hypersetup{
+%    pdftitle={\titelA \titelB},
+%    pdfauthor={\autor},
+%    pdfcreator={\autor},
+%    pdfsubject={\titelA \titelB},
+%    pdfkeywords={\titelA \titelB},
+%}

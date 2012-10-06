@@ -1,0 +1,91 @@
+% s\"amtlich Pakete die ben\"otigt werden
+
+% ----- Umlaute -----
+\usepackage[utf8]{inputenc}                       % Kodierung der Eingabezeichen
+\usepackage[T1]{fontenc}                          % Kodierung der Schriften
+
+% ----- Rechtschreibung -----
+\usepackage[ngerman]{babel}                       % neue deutsch Rechtschreibung
+\usepackage{setspace}                             % Einstellung f\"ur Zeilenabstand
+\usepackage{geometry}                             % Einstellung der Seitenabst\"ande
+
+% ----- Schriftart -----                          
+\usepackage{courier}                             
+\usepackage{relsize}                              % Schriftgr\"o\ss{}e relativ festlegen
+
+% ----- sonstiges -----
+\usepackage{url}                                  % URL-Highlighting
+\usepackage[
+    automark,                                     % Kapitelangaben in Kopfzeile automatisch erstellen
+    headsepline,                                  % Trennlinie unter Kopfzeile
+    ilines                                        % Trennlinie linksb\"undig ausrichten
+]{scrpage2}
+\usepackage{makeidx}
+%\usepackage{natbib}
+\usepackage{xcolor}
+
+% ---- Abk\"urzungsverzeichnis ----
+\usepackage[intoc]{nomencl}
+\let\abbrev\nomenclature
+\renewcommand{\nomname}{Abk\"urzungsverzeichnis}  % Anzeigenamen \"andern
+\setlength{\nomlabelwidth}{.20\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}          % Zwischenraum mit Punkt f\"ullen
+\setlength{\nomitemsep}{-\parsep}
+
+% ----- Bilder -----
+\usepackage[pdftex]{graphicx}                     % Bildunterst\"utzung
+\usepackage{wrapfig}                              % Text um Bilder flie\ss{}en lassen
+\graphicspath{{bilder/}}                          % Pfad zu den Bilddatein
+
+
+% ----- Mathesachen -----
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+% ---- PDF-Optionen ----
+\usepackage[
+    bookmarks,
+    bookmarksopen=true,
+    colorlinks=true,    
+% +++ farbige Links +++
+    linkcolor=red,                                 % einfache interne Verk"un\pfungen
+    anchorcolor=black,                             % Ankertext
+    citecolor=blue,                                % Verweise auf Literaturverzeichniseintr\"age im Text
+    filecolor=magenta,                             % Verkn\"upfungen, die lokale Dateien \"offnen
+    menucolor=red,                                 % Acrobat-Men\"upunkte
+    urlcolor=cyan, 
+% +++ schwarze Links +++
+    %linkcolor=black,                               % einfache interne Verknüpfungen
+    %anchorcolor=black,                             % Ankertext
+    %citecolor=black,                               % Verweise auf Literaturverzeichniseinträge im Text
+    %filecolor=black,                               % Verknüpfungen, die lokale Dateien öffnen
+    %menucolor=black,                               % Acrobat-Menüpunkte
+    %urlcolor=black, 
+    backref,
+    plainpages=false,                              % zur korrekten Erstellung der Bookmarks
+    pdfpagelabels,                                 % zur korrekten Erstellung der Bookmarks
+    hypertexnames=false,                           % zur korrekten Erstellung der Bookmarks
+    linktocpage                                    % Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken
+]{hyperref}
+
+% ---- f\"ur lange Tabellen ----
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{pdflscape} 
+\usepackage{lscape}
+
+% ---- color ----
+\usepackage{colortbl}                              % zum einf�rben von Tabellenspalten
+\usepackage{xcolor}                                % f�r eigene Farbdefinitionen
+
+\usepackage{tikz-uml}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{xstring}
+\usepackage{calc}
+\usepackage{pgfopts}
+
+\usetikzlibrary{shapes,arrows}

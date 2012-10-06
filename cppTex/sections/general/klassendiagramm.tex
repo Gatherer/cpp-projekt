@@ -1,0 +1,97 @@
+\section{Klassendiagramm} 
+\label{sec:klassendiagramm}
+
+Klassendiagramm f\"ur unser Projekt.
+Wer Fehler findet oder Anregungen hat, kann sie jederzeit durchf\"uhren oder mir bescheid sagen wenn du dich nicht durch den Latex Code qu\"alen willst. 
+
+\pagebreak
+\begin{landscape}
+\thispagestyle{empty}
+
+\begin{tikzpicture}
+  \umlclass{TDATE}
+    {day   : int \\
+     month : int \\
+     year  : int}
+    {}
+  \umlclass[x=0,y=-6]{TTIME}
+    {hour    : int \\
+     seconds : int \\
+     minutes : int}
+    {}
+  \umlclass[x=0,y=-11.5]{TMONEY}
+    {amount : double \\
+     currency : string}
+    {}
+  \umlclass[x=5,y=-8.5]{TBANK}
+    {name : string \\
+     BLZ : unsigned/signed \\
+     accountList[ ] : TACCOUNT}
+    {}
+  \umlclass[x=5,y=-1]{TACCOUNT}
+    {customer : TCUSTOMER \\
+     accountNr : long/string \\
+     bookingList[ ] : TBOOKING \\
+     pin : int \\
+     blz : unsigned/long \\
+     *bank : TBANK \\
+     balance : TMONEY}
+    {}
+  \umlclass[x=18,y=-9]{TBOOKING}
+    {date : TDATE \\
+     time : TTIME \\
+     *contraAccount : TACCOUNT \\
+     amount : TMONEY \\
+     printed : bool \\
+     bookingText : string}
+    {}
+  \umlclass[x=11.5,y=0.5]{TCURRENTACCOUNT}
+    {disposit : TMONEY}
+    {}
+  \umlclass[x=11.5,y=-3]{TSAVINGACCOUNT}
+    {interestRate : double}
+    {}
+  \umlemptyclass[x=18.5,y=-1.5]{TFIXEDDEPOSITACCOUNT}
+    {}
+    {}
+  \umlclass[x=11.5,y=-9]{TCUSTOMER}
+    {name : string \\
+     birthday : TDATE \\
+     nr : int \\
+     street : string \\
+     city : string \\
+     *TACCOUNT : accounts[ ]}
+    {}
+    
+    \umlnote[x=5,y=-12]{TBANK}{weitere Sachen wie Adresse der Bank freiwilig m\"oglich} 
+    
+    \umlinherit[geometry=-|-, anchor2=10]{TCURRENTACCOUNT}{TACCOUNT}
+    \umlinherit[geometry=-|-]{TSAVINGACCOUNT}{TACCOUNT}
+    \umlinherit[geometry=-|-, anchor1=5]{TFIXEDDEPOSITACCOUNT}{TCURRENTACCOUNT}
+    \umlinherit[geometry=-|-, anchor1=-5]{TFIXEDDEPOSITACCOUNT}{TSAVINGACCOUNT}
+\end{tikzpicture} 
+
+\newpage
+\thispagestyle{empty}
+
+\begin{tikzpicture}
+  \umlclass[x=3,y=-3]{TTRANSACTION}
+    {date : TDATE \\
+     time : TTIME \\
+     accountNr : long/string \\
+     accountBlz : unsigned/signed \\
+     contraAccountNr : long/string \\
+     contraAccountBlz : unsigned/signed \\
+     amount : TMONEY \\
+     bookingText : string}
+    {}
+  \umlclass[x=12,y=-3]{TTRANSACTIONLIST}
+    {date : TDATE \\
+     time : TTIME \\
+     transactions[ ] : TTRANSACTION}
+    {}
+ 
+\end{tikzpicture}
+
+\end{landscape}
+\newpage

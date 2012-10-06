@@ -1,30 +1,54 @@
-%%This is a very basic test template.
+\documentclass[headsepline,                   % Trennlinie unter Kopfzeile            
+              ilines,                         % Tremmlinie links ausrichten
+              fontsize=11pt,                  % Schriftgröße 
+              paper=a4,                       % Papierart
+              titlepage,                      % es wird eine Titelseite verwendet
+              parskip=half,
+              twoside=false,
+              listof=totoc,                   % Verzeichnisse im Inhaltsverzeichnis aufführen
+              bibliography=totoc,             % Literaturverzeichnis im Inhaltsverzeichnis aufführen
+              index=totoc,                    % Index im Inhaltsverzeichnis aufführen
+              captions=tableheading]{scrbook} % Beschriftung von Tabellen unterhalb ausgeben
 
-\documentclass{article}
+%% Alle benötigten Pakete laden
+\input{sonstiges/packages}
+\input{sonstiges/stil}
+\input{sonstiges/farbschemen}
+\input{sonstiges/tikz}
 
-\usepackage{tikz-uml}
-\usepackage{tikz}
-\usepackage{ifthen}
-\usepackage{xstring}
-\usepackage{calc}
-\usepackage{pgfopts}
+\makeindex                                    % Inhaltsverzeichnis erstellen
+\makenomenclature                             % Abkürzungsverzeichnis erstellen
  
-\begin{document}
+\begin{document} 
+  \setcounter{secnumdepth}{3}                 % auch subsubsection nummerieren
+  \setcounter{tocdepth}{3}
 
-%\tikzumlset{fill class=red!20}
-  \begin{tikzpicture}
-    \umlclass[x=0,y=0]{DATE}
-      {day   : int \\
-       month : int \\
-       year  : int}
-       {}
-     \umlclass[x=0,y=-3]{TIME}
-      {seconds : int \\
-       minutes : int \\
-       hour    : int}
-       {}
-     \umlclass[x=2,y=-11, fill=orange!50, draw=white, text=red]{UGLY:TEST}
-      {n : uint}
-      {} 
-  \end{tikzpicture} 
+  \input{sections/title}
+  
+  \pagenumbering{Roman}                       % Seitennummern mit großen römischen Zahlen
+  \tableofcontents                            % Inhaltsverzeichnis einfügen
+  
+  \input{sonstiges/abkuerzungen}
+  \clearpage\markboth{\nomname}{\nomname} 
+  \printnomenclature                          % Abkürzungsverzeichnis einfügen
+   
+  \listoffigures                              % Abbildungsverzeichnis
+  \listoftables                               % Tabellenverzeichnis
+
+  \clearpage                                  % sonst fängt die Nummerierung zu
+  % früh an
+  \pagenumbering{arabic}                      % Seitennummern mit arabischen Zahlen
+   
+  \input{sections/general/general}
+  \input{sections/software/software}
+
+  \begin{appendix}                             % Literaturverzeichnisses
+    \clearpage                                 % sonst fängt die Nummerierung zu früh an
+    \pagenumbering{roman}                      % Seitennummern mit kleinen römische Zahlen
+      \input{sections/anhang/anhang}
+    \bibliography{sonstiges/bibsachen}          % Aufruf: bibtex Masterarbeit
+    \bibliographystyle{plain}                    % DIN-Stil
+  \end{appendix}
+  \printindex
+  
 \end{document}
