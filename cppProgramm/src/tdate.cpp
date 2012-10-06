@@ -1,20 +1,11 @@
-class TDate
-{
-  private:
-    int Day;
-    int Month;
-    int Year;
+#include "tdate.h"
 
-  public:
-    void setDate(int Day, int Month, int Year)
-    {
+int TDATE::getDay() const {return day;}
+int TDATE::getDay() const {return month;}
+int TDATE::getDay() const {return year;}
 
-    }
-
-    void print()
-    {
-
-    }
-
-
+void TDATE::datumSetzen(int newDay, int newMonth, int newYear) {
+  day = newDay;
+  month = newMonth;
+  year = newYear;
 }

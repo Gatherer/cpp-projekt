@@ -1,11 +1,20 @@
-class TDate
-{
-  private:
-    int Day;
-    int Month;
-    int Year;
+#ifndef TDATE_H_
+#define TDATE_H_
 
+class tdate {
   public:
-    void setDate(int Day, int Month, int Year);
-    void print();
+	TDATE();
+	TDATE(int day, int month, int year); 							// allgemeiner Konstruktor
+
+	int getDay() const;
+	int getMonth() const;
+	int getYear() const;
+	void datumSetzen(int newDay, int newMonth, int newYear);		// moegleichkeit Datum festlegen
+
+  private:
+	int day;
+	int month;
+	int year;
 };
+
+#endif /* TDATE_H_ */
