@@ -1,0 +1,30 @@
+%%This is a very basic test template.
+
+\documentclass{article}
+
+\usepackage{tikz-uml}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{xstring}
+\usepackage{calc}
+\usepackage{pgfopts}
+ 
+\begin{document}
+
+%\tikzumlset{fill class=red!20}
+  \begin{tikzpicture}
+    \umlclass[x=0,y=0]{DATE}
+      {day   : int \\
+       month : int \\
+       year  : int}
+       {}
+     \umlclass[x=0,y=-3]{TIME}
+      {seconds : int \\
+       minutes : int \\
+       hour    : int}
+       {}
+     \umlclass[x=2,y=-11, fill=orange!50, draw=white, text=red]{UGLY:TEST}
+      {n : uint}
+      {} 
+  \end{tikzpicture} 
+\end{document}
