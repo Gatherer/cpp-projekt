@@ -1,11 +1,19 @@
 #include "tdate.h"
+#include "misc.h"
 
-int TDATE::getDay() const {return day;}
-int TDATE::getDay() const {return month;}
-int TDATE::getDay() const {return year;}
 
-void TDATE::datumSetzen(int newDay, int newMonth, int newYear) {
+void tdate::datumSetzen(int newDay, int newMonth, int newYear) {
   day = newDay;
   month = newMonth;
   year = newYear;
+}
+
+void tdate::datumHolen() {
+	t_datetime date;
+
+	date = misc.getDateTimeStruct();
+
+	day = date.str_day;
+	month = date.str_month;
+	year = date.str_year;
 }

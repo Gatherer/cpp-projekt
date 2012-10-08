@@ -3,13 +3,11 @@
 
 class tdate {
   public:
-	TDATE();
-	TDATE(int day, int month, int year); 							// allgemeiner Konstruktor
+	tdate();
+	tdate(int day, int month, int year); 							// allgemeiner Konstruktor
 
-	int getDay() const;
-	int getMonth() const;
-	int getYear() const;
 	void datumSetzen(int newDay, int newMonth, int newYear);		// moegleichkeit Datum festlegen
+	void datumHolen();
 
   private:
 	int day;

@@ -16,8 +16,8 @@ using namespace std;
 
 int main()
 {
-  TDate D1, D2(3, 10, 2012);
-  TTime T1, T2(16, 0);
+  tdate D1, D2(3, 10, 2012);
+  ttime T1, T2(16, 0);
   cout << "\nKlasse TDate:" << endl;
   cout << "Standardkonstruktor Heutiges Datum D1:   "; D1.print(); cout << endl;
   cout << "Konstruktor         Tag der Einheit (D2):"; D2.print(); cout << endl;
