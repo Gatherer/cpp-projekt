@@ -2,13 +2,13 @@
 #include "misc.h"
 
 
-void tdate::datumSetzen(int newDay, int newMonth, int newYear) {
+void tdate::tdate(int newDay, int newMonth, int newYear) {
   day = newDay;
   month = newMonth;
   year = newYear;
 }
 
-void tdate::datumHolen() {
+void tdate::tdate() {
 	t_datetime date;
 
 	date = misc.getDateTimeStruct();
