@@ -1,13 +1,13 @@
 #include "ttime.h"
 #include "misc.h"
 
-void ttime::zeitSetzen(int newSec, int newMin, int newHour) {
+void ttime::ttime(int newSec, int newMin, int newHour) {
   sec = newSec;
   min = newMin;
   hour = newHour;
 }
 
-void ttime::zeitHolen() {
+void ttime::ttime() {
 	t_datetime time;
 
 	time = misc.getDateTimeStruct();
