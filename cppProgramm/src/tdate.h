@@ -6,8 +6,8 @@ class tdate {
 	tdate();
 	tdate(int day, int month, int year); 							// allgemeiner Konstruktor
 
-	void datumSetzen(int newDay, int newMonth, int newYear);		// moegleichkeit Datum festlegen
-	void datumHolen();
+	//void datumSetzen(int newDay, int newMonth, int newYear);		// moegleichkeit Datum festlegen
+	//void datumHolen();
 
   private:
 	int day;
