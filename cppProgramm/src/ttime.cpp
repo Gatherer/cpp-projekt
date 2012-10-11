@@ -1,18 +1,28 @@
 #include "ttime.h"
-#include "misc.h"
+#include <ctime>
+#include <iostream>
+using namespace std;
 
-void ttime::ttime(int newSec, int newMin, int newHour) {
-  sec = newSec;
+ttime::ttime(int newHour, int newMin)
+{
+  sec = 0;
   min = newMin;
   hour = newHour;
 }
 
-void ttime::ttime() {
-	t_datetime time;
+ttime::ttime()
+{
+  time_t t;				// Zeitstructur anlegen
 
-	time = misc.getDateTimeStruct();
+  t = time(0);			// aktuelle Zeil holen
+  struct tm * now = localtime(&t);
 
-	sec = time.str_sec;
-	min = time.str_min;
-	hour = time.str_hour;
+  sec = now->tm_sec;		/* Sekunden - [0,61] */
+  min = now->tm_min;		/* Minuten - [0,59] */
+  hour = now->tm_hour;		/* Stunden - [0,23] */
+}
+
+void ttime::print()
+{
+  cout << hour <<":" << min << ":" << sec;
 }
