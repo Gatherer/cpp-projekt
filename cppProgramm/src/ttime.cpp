@@ -3,9 +3,9 @@
 #include <iostream>
 using namespace std;
 
-ttime::ttime(int newHour, int newMin)
+ttime::ttime(int newHour, int newMin, int newSec)
 {
-  sec = 0;
+  sec = newSec;
   min = newMin;
   hour = newHour;
 }

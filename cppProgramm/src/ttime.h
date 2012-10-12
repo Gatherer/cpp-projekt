@@ -5,7 +5,7 @@ class ttime
 {
   public:
     ttime();
-    ttime(int newHour, int newMin);
+    ttime(int newHour, int newMin=0, int newSec=0);
     void print();
 
   private:
