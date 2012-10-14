@@ -25,5 +25,7 @@ int main()
   cout << "Standardkonstruktor Aktuelle Uhrzeit T1            : "; T1.print(); cout << endl;
   cout << "Konstruktor         Uebungsbeginn T2               : "; T2.print(); cout << endl;
 
+  getchar();
+
   return 0;
 }
