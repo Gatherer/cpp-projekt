@@ -27,7 +27,7 @@ void tcustomer::print()
   cout << street << " " << housenumber << endl;
   cout << zipcode << " " << city << endl;
   cout << "geboren am: "; birthday.print(); cout << endl;
-  cout << "Konten:" << cout;
+  cout << "Konten:" << endl;
 //  cout << "- Kontonummer: "; *A_tcustomer.account[Zählvariable] Ausgabe Kontonummern
 }
 

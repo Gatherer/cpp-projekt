@@ -12,10 +12,10 @@ class tmoney;
 class taccount
 {
   public:
-    taccount(tcustomer customer, std::string accountNumber, std::string pin);
+    taccount(tcustomer *customer, std::string accountNumber, std::string pin);
     
     void print();
-    void set(tcustomer customer, std::string accountNumber, std::string pin);
+    void set(tcustomer *customer, std::string accountNumber, std::string pin);
     
     string get_accountNumber() {return accountNumber; }
     string get_pin() {return pin; }

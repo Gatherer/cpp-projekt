@@ -19,29 +19,20 @@ using namespace std;
 
 int main()
 {
-  tdate D1, D2(3, 10, 2012);
-  ttime T1, T2(16, 0);
+  tdate D2(3, 10, 2012);
   tmoney M1, M2(17.28, "Dollar");
-  tcustomer C1("Klaus", "Kleber", D1, "Luxenburger Strasse", "3a", "13593", "Berlin");
+  tcustomer C1("Klaus", "Kleber", D2, "Luxenburger Strasse", "3a", "13593", "Berlin");
   taccount A1(&C1, "1234567890", "9999");
-  
-  cout << "\nKlasse TDate:" << endl;
-  cout << "Standardkonstruktor Heutiges Datum D1              : "; D1.print(); cout << endl;
-  cout << "Konstruktor         Tag der Einheit D2             : "; D2.print(); cout << endl << endl;
-
-  cout << "\nKlasse TTime:" << endl;
-  cout << "Standardkonstruktor Aktuelle Uhrzeit T1            : "; T1.print(); cout << endl;
-  cout << "Konstruktor         Uebungsbeginn T2               : "; T2.print(); cout << endl << endl;
-
-  cout << "Klasse TMoney:" << endl;
-  cout << "Standardkonstruktor 0 Euro M1                      : "; M1.print();
-  cout << "Konstruktor         17.28 Dollar M2                : "; M2.print(); cout << endl << endl;
                                     
-  cout << "Klasse Tcustomer:" << endl;
-  cout << "Klause Kleber   : "; C1.print(); cout << endl << endl;
+  cout << "Ausgabe Kunde:" << endl;
+  cout << "Klause Kleber   : " << endl; 
+  cout << "---------------------------" << endl;
+  C1.print(); cout << endl << endl;
   
-  cout << "Klasse Taccount:" << endl;
-  cout << "1234567890   : "; A1.print(); cout << endl << endl;
+  cout << "Ausgabe Konto:" << endl;
+  cout << "Testkonto 1 :" << endl; 
+  cout << "---------------------------" << endl;
+  A1.print(); cout << endl << endl;
   
   getchar();
 
