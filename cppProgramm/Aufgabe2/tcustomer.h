@@ -7,19 +7,25 @@
 #include "tdate.h"
 #include "taccount.h"
 
+/* Klassen fuer Vorwertsdeklaration bekannt machen */
 class taccount;
 class tdate;
 
+/* Klasse tcustomer */
 class tcustomer
 {
   public:
+	/* Konstruktoren */
     tcustomer(std::string name, std::string surname, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
               std::string city);
-    
-    void print();
+
+    /* Dekonstruktor */
+
+	/* set() und get() Methoden */
     void set(std::string name, std::string surname, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
-              std::string city);
-    string get_name() { return name; }
+             std::string city);
+    
+	string get_name() { return name; }
     string get_surname() { return surname; }
     tdate get_birthday() { return birthday; }
     string get_street() { return street; }
@@ -27,7 +33,14 @@ class tcustomer
     string get_zipcode() { return zipcode; }
     string get_city() { return city; }
 //  get Methode fuer taccount fehlt noch    
-    static int get_amountAccounts() { return amountAccounts; } 
+    int get_amountAccounts() { return amountAccounts; } 
+
+	/* print Methoden */
+	void print();
+
+	/* sonstige Methoden */
+	void addAmountAccounts();
+	void deleteAmountAccounts();
     
   private:
     std::string name;
@@ -38,7 +51,6 @@ class tcustomer
     std::string city;
     tdate birthday;
     taccount *accounts[MAXACCOUNTS];
-    static int amountAccounts;
+    int amountAccounts;
 };
-
 #endif /* TCUSTOMER_H_ */

@@ -5,11 +5,13 @@ using namespace std;
 
 #include "ttime.h"
 
+/* Allgemeiner Konstruktor */
 ttime::ttime(int hour, int min, int sec)
 {
   set(hour, min, sec);
 }
 
+/* Standardkonstruktor */
 ttime::ttime()
 {
   time_t t;                                           /* Zeitstructur anlegen */

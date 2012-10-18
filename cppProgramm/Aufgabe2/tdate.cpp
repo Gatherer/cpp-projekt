@@ -5,11 +5,13 @@ using namespace std;
 
 #include "tdate.h"
 
+/* Allgemeiner Konstruktor */
 tdate::tdate(int Day, int Month, int Year)
 {
 	set(Day, Month, Year);
 }
 
+/* Standardkonstruktor */
 tdate::tdate()
 {
   time_t t;                                           /* Zeitstructur anlegen */
@@ -25,7 +27,7 @@ tdate::tdate()
 void tdate::print()
 {
   cout << setfill('0');                               /* bei einstelligen Zahlen Fuellwert 0 */
-  cout << setw(2) << day << "."               /* setw() ist volatile */
+  cout << setw(2) << day << "."			              /* setw() ist volatile */
 	   << setw(2) << month << "." 
 	   << setw(4) << year;
 }

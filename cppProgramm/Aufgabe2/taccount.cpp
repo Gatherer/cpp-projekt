@@ -6,9 +6,21 @@ using namespace std;
 #include "taccount.h"
 #include "tmoney.h"
 
+/* Allgemeiner Konstruktor */
+/* Wenn ein Objekt vom Typ taccount angelegt wird, wird bei dem
+   dazugehörigen customer die Anzahl der Accounts um 1 erhöht */
 taccount::taccount(tcustomer *customer, string accountNumber, string pin)
 {
   set(customer, accountNumber, pin);
+  customer->addAmountAccounts();
+}
+
+/* Destruktor */
+/* Wenn ein Objekt vom Typ taccount zerstört wird, wird bei dem
+   dazugehörigen customer die Anzahl der Accounts um 1 verringert */
+taccount::~taccount()
+{
+  customer->deleteAmountAccounts();
 }
 
 void taccount::set(tcustomer *customer, string accountNumber, string pin)
@@ -24,7 +36,8 @@ void taccount::set(tcustomer *customer, string accountNumber, string pin)
 void taccount::print()
 {
   customer->print();
+  cout << endl;
   cout << "Kontonummer      : " << accountNumber << endl;
   cout << "Anzahl Buchungen : " << amountBookings << endl;
-  cout << "Kontostand       : "; amount.print(); cout << endl;
+  cout << "Kontostand       : "; amount.print();
 }
