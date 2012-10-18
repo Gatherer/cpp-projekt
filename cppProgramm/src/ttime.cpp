@@ -1,42 +1,38 @@
-#include "ttime.h"
 #include <ctime>
 #include <iomanip>
 #include <iostream>
 using namespace std;
 
-ttime::ttime(int newHour, int newMin, int newSec)
+#include "ttime.h"
+
+ttime::ttime(int hour, int min, int sec)
 {
-  ttime::set(newHour, newMin, newSec);
+  set(hour, min, sec);
 }
 
 ttime::ttime()
 {
-  time_t t;										/* Zeitstructur anlegen */
+  time_t t;                                           /* Zeitstructur anlegen */
 
-  t = time(0);									/* aktuelle Zeil holen */
+  t = time(0);                                        /* aktuelle Zeil holen */
   struct tm * now = localtime(&t);
 
-  A_ttime.sec = now->tm_sec;					/* Sekunden - [0,61] */
-  A_ttime.min = now->tm_min;					/* Minuten - [0,59] */
-  A_ttime.hour = now->tm_hour;					/* Stunden - [0,23] */
+  this -> sec = now->tm_sec;                          /* Sekunden - [0,61] */
+  this -> min = now->tm_min;                          /* Minuten - [0,59] */
+  this -> hour = now->tm_hour;                        /* Stunden - [0,23] */
 }
 
 void ttime::print()
 {
-  cout << setfill('0');							/* bei einstelligen Zahlen Füllwert 0 */
-  cout << setw(2) << A_ttime.hour << ":"        /* setw() ist volatile */
-	   << setw(2) << A_ttime.min << ":" 
-	   << setw(2) << A_ttime.sec;
+  cout << setfill('0');                               /* bei einstelligen Zahlen Fuellwert 0 */
+  cout << setw(2) << hour << ":"              /* setw() ist volatile */
+	   << setw(2) << min << ":" 
+	   << setw(2) << sec;
 }
 
-void ttime::set(int newHour, int newMin, int newSec)
+void ttime::set(int hour, int min, int sec)
 {
-  A_ttime.sec = newSec;
-  A_ttime.min = newMin;
-  A_ttime.hour = newHour;
-}
-
-s_ttime ttime::get()
-{
-	return A_ttime;
+  this -> sec = sec;
+  this -> min = min;
+  this -> hour = hour;
 }
