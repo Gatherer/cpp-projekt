@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : cppProjekt.cpp
-// Author      : Glatte, Thomas; Gruender Jessica, Duerrschmidt Clemens, Schlabeck Mirco
+// Author      : Glatte, Thomas; Gruender Jessica, Schlabeck Mirco
 // Version     : 0.2
 // Description : main file for our c++ projekt
 //============================================================================
@@ -17,6 +17,14 @@ using namespace std;
 #include "tcustomer.h"
 #include "taccount.h"
 
+taccount anlegenAccount(tcustomer *customer, string kontonummer, string pin) 
+{
+  taccount dummy(customer, kontonummer, pin);
+  customer->setAccount(&dummy);
+    
+  return dummy;
+}
+
 int main()
 {
   /* Kunde 1 anlegen */
@@ -32,22 +40,38 @@ int main()
   
   /* Account 1 anlegen */
   {
-    taccount A1(&C1, "1234567890", "9999");
+    taccount A1 = anlegenAccount(&C1, "1234567890", "1234");
   
-	/* Ausgabe Konto 1 */
-	cout << "---------------------------" << endl;
-	cout << "Ausgabe Konto:" << endl;
-    cout << "Testkonto 1 :" << endl; 
+    /* Ausgabe Konto 1 */
+    cout << "---------------------------" << endl;
+    cout << "Ausgabe Konto 1:" << endl;
     cout << "---------------------------" << endl;
     A1.print();
-	cout << endl;
-
-	cout << endl << "Ausgabe amountAccount: " << C1.get_amountAccounts() << endl;
-	getchar();
+    cout << endl;
+    
+    cout << endl << "Ausgabe amountAccount (sollte 1 sein): " << C1.get_amountAccounts() << endl;
+    getchar();
+    
+    /* Account 2 anlegen */
+    {
+      taccount A2 = anlegenAccount(&C1, "0987654321", "4321"); 
+      /* Ausgabe Konto 2 */
+      cout << "---------------------------" << endl;
+      cout << "Ausgabe Konto 2:" << endl;
+      cout << "---------------------------" << endl;
+      A2.print();
+      cout << endl;
+        
+      cout << endl << "Ausgabe amountAccount (sollte 2 sein): " << C1.get_amountAccounts() << endl;
+      getchar();
+    }
+    /* Account 2 wird zerstört */
+    cout << endl << "Ausgabe amountAccount: (sollte 1 sein): " << C1.get_amountAccounts() << endl;
+    getchar();
   }
 
   /* Account 1 wird zerstört */
-  cout << endl << "Ausgabe amountAccount: " << C1.get_amountAccounts() << endl;
+  cout << endl << "Ausgabe amountAccount: (sollte 0 sein): " << C1.get_amountAccounts() << endl;
   getchar();
   return 0;
 }

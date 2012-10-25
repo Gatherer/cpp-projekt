@@ -23,3 +23,6 @@ cppProject.o: cppProject.cpp ttime.cpp ttime.h tdate.cpp tdate.h tmoney.cpp tmon
 
 clean:
 	rm -rf *o cppProject
+
+run:
+	xterm -geometry 100x40 -e ./cppProject

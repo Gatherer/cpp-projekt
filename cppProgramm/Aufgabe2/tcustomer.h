@@ -24,8 +24,8 @@ class tcustomer
 	/* set() und get() Methoden */
     void set(std::string name, std::string surname, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
              std::string city);
-    
-	string get_name() { return name; }
+    void setAccount(taccount *account);
+	  string get_name() { return name; }
     string get_surname() { return surname; }
     tdate get_birthday() { return birthday; }
     string get_street() { return street; }

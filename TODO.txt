@@ -3,8 +3,6 @@ Da wir ja alle gerne dran arbeiten habe ich mir gedacht das sich ja jeder einen/
 Wer moch mehr Einfälle hat kann und soll natürlich auch die Liste erweitern.
 
 Pflicht für Aufgabe 2:
-- verbinden der Klassen taccount und tcustomer über *accounts[]
-- print() für *accounts[] erweitern
 - get() Methode *accounts[] erstellen
 
 Glaube Pflicht für Aufgabe 2:

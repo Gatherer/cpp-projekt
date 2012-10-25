@@ -17,15 +17,15 @@ class taccount
     /* Konstruktoren */
     taccount(tcustomer *customer, std::string accountNumber, std::string pin);
     
-	/* Dekonstruktor */
+	/* Destruktor */
 	virtual ~taccount();
 
 	/* set() und get() Methoden */
-    void set(tcustomer *customer, std::string accountNumber, std::string pin);
+  void set(tcustomer *customer, std::string accountNumber, std::string pin);
 
-    string get_accountNumber() { return accountNumber; }
-    string get_pin() { return pin; }
-	int get_amountBookings() { return amountBookings; }
+  string get_accountNumber() { return accountNumber; }
+  string get_pin() { return pin; }
+  int get_amountBookings() { return amountBookings; }
 
 	/* print Methoden */
 	void print();

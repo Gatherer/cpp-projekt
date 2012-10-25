@@ -8,7 +8,7 @@ using namespace std;
 
 /* Allgemeiner Konstruktor */
 /* Wenn ein Objekt vom Typ taccount angelegt wird, wird bei dem
-   dazugehörigen customer die Anzahl der Accounts um 1 erhöht */
+   dazugehoerigen customer die Anzahl der Accounts um 1 erhoeht */
 taccount::taccount(tcustomer *customer, string accountNumber, string pin)
 {
   set(customer, accountNumber, pin);
@@ -16,8 +16,8 @@ taccount::taccount(tcustomer *customer, string accountNumber, string pin)
 }
 
 /* Destruktor */
-/* Wenn ein Objekt vom Typ taccount zerstört wird, wird bei dem
-   dazugehörigen customer die Anzahl der Accounts um 1 verringert */
+/* Wenn ein Objekt vom Typ taccount zerstoert wird, wird bei dem
+   dazugehoerigen customer die Anzahl der Accounts um 1 verringert */
 taccount::~taccount()
 {
   customer->deleteAmountAccounts();
@@ -25,7 +25,6 @@ taccount::~taccount()
 
 void taccount::set(tcustomer *customer, string accountNumber, string pin)
 {
-  
   this -> customer = customer;
   this -> accountNumber = accountNumber;
   this -> pin = pin;

@@ -14,10 +14,6 @@ tcustomer::tcustomer(string name, string surname, tdate birthday, string street,
 {
   tcustomer::set(name, surname, birthday, street, housenumber, zipcode, city);
   this -> amountAccounts = 0;
-  for (int i = 0; i<MAXACCOUNTS; i++)
-  {
-	accounts[i] = NULL;
-  }
 }
 
 void tcustomer::set(string name, string surname, tdate birthday, string street, string housenumber, string zipcode, string city)
@@ -33,13 +29,19 @@ void tcustomer::set(string name, string surname, tdate birthday, string street, 
 
 /* Ausgabe der Kontonummern fehlt noch */
 void tcustomer::print()
-{
+{ 
+  int i;
+  
   cout << name << " " << surname << endl;
   cout << street << " " << housenumber << endl;
   cout << zipcode << " " << city << endl;
   cout << "geboren am: "; birthday.print(); cout << endl;
-  cout << "Konten:" << endl;
-  cout << "- Kontonummer: " << accounts[0];
+  cout << "Konten:" ;
+  for (i = 0; i < amountAccounts; i++)
+  {
+    cout << endl; 
+    cout << "- Kontonummer: " << (*accounts[i]).get_accountNumber();
+  }
 }
 
 /* wird von tcustomer Konstruktor aufgerufen */
@@ -52,4 +54,10 @@ void tcustomer::addAmountAccounts()
 void tcustomer::deleteAmountAccounts()
 {
 	amountAccounts--;
+}
+
+/* */
+void tcustomer::setAccount(taccount *account)
+{
+  this -> accounts[amountAccounts-1]  = account;
 }
