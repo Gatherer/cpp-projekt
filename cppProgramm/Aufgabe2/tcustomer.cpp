@@ -36,18 +36,12 @@ void tcustomer::print()
   cout << street << " " << housenumber << endl;
   cout << zipcode << " " << city << endl;
   cout << "geboren am: "; birthday.print(); cout << endl;
-  cout << "Konten:" ;
+  cout << "Konten:" << flush;
   for (i = 0; i < amountAccounts; i++)
   {
     cout << endl; 
-    cout << "- Kontonummer: " << (*accounts[i]).get_accountNumber();
+    cout << "- Kontonummer: " << (*accounts[i]).get_accountNumber() << flush;
   }
-}
-
-/* wird von tcustomer Konstruktor aufgerufen */
-void tcustomer::addAmountAccounts()
-{
-	amountAccounts++;
 }
 
 /* wird von tcustomer Dekonstruktor aufgerufen */
@@ -59,5 +53,6 @@ void tcustomer::deleteAmountAccounts()
 /* */
 void tcustomer::setAccount(taccount *account)
 {
-  this -> accounts[amountAccounts-1]  = account;
+  this -> accounts[amountAccounts]  = account;
+  amountAccounts++;
 }

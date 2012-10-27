@@ -25,5 +25,5 @@ void tmoney::set(double amount, string currency)
 
 void tmoney::print()
 {
-  cout << amount << " " << currency;
+  cout << amount << " " << currency << flush;
 }

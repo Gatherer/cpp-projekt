@@ -12,7 +12,7 @@ using namespace std;
 taccount::taccount(tcustomer *customer, string accountNumber, string pin)
 {
   set(customer, accountNumber, pin);
-  customer->addAmountAccounts();
+  customer->setAccount(this);
 }
 
 /* Destruktor */
@@ -38,5 +38,5 @@ void taccount::print()
   cout << endl;
   cout << "Kontonummer      : " << accountNumber << endl;
   cout << "Anzahl Buchungen : " << amountBookings << endl;
-  cout << "Kontostand       : "; amount.print();
+  cout << "Kontostand       : " << flush; amount.print();
 }

@@ -9,6 +9,7 @@
 #include <cstdio>
 #include <string>
 #include <iomanip>
+#include <cstdlib>
 using namespace std;
 
 #include "tdate.h"
@@ -17,11 +18,18 @@ using namespace std;
 #include "tcustomer.h"
 #include "taccount.h"
 
+void enter()
+{
+  cout << "Press enter to continue...";
+  cin.get();
+  system("clear");
+}
+
 taccount anlegenAccount(tcustomer *customer, string kontonummer, string pin) 
 {
   taccount dummy(customer, kontonummer, pin);
-  customer->setAccount(&dummy);
-    
+//  customer->setAccount(&dummy);
+  
   return dummy;
 }
 
@@ -33,11 +41,12 @@ int main()
   
   /* Ausgabe Kunde 1 */
   cout << "---------------------------" << endl;
-  cout << "Ausgabe Kunde:" << endl;
-  cout << "Klause Kleber   : " << endl; 
+  cout << "Ausgabe Kunde  : " << endl;
+  cout << "Klaus Kleber   : " << endl; 
   cout << "---------------------------" << endl;
   C1.print(); cout << endl << endl;
   
+  enter();
   /* Account 1 anlegen */
   {
     taccount A1 = anlegenAccount(&C1, "1234567890", "1234");
@@ -50,7 +59,7 @@ int main()
     cout << endl;
     
     cout << endl << "Ausgabe amountAccount (sollte 1 sein): " << C1.get_amountAccounts() << endl;
-    getchar();
+    enter();
     
     /* Account 2 anlegen */
     {
@@ -63,15 +72,22 @@ int main()
       cout << endl;
         
       cout << endl << "Ausgabe amountAccount (sollte 2 sein): " << C1.get_amountAccounts() << endl;
-      getchar();
+      enter();
     }
+    /* Ausgabe Kunde 1 */
+    cout << "---------------------------" << endl;
+    cout << "Ausgabe Kunde:" << endl;
+    cout << "Klause Kleber   : " << endl; 
+    cout << "---------------------------" << endl;
+    C1.print(); cout << endl << endl;
+    
     /* Account 2 wird zerstört */
     cout << endl << "Ausgabe amountAccount: (sollte 1 sein): " << C1.get_amountAccounts() << endl;
-    getchar();
+    enter();
   }
 
   /* Account 1 wird zerstört */
   cout << endl << "Ausgabe amountAccount: (sollte 0 sein): " << C1.get_amountAccounts() << endl;
-  getchar();
+  enter();
   return 0;
 }
