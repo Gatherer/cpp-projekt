@@ -1,15 +1,13 @@
-Ich erstelle mal eine kleine ToDo Liste für unser Projekt.
+Ich erstelle mal eine kleine ToDo Liste fuer unser Projekt.
 Da wir ja alle gerne dran arbeiten habe ich mir gedacht das sich ja jeder einen/zwei/drei.... Punkte vornehmen kann und dann abarbeiten kann.
-Wer moch mehr Einfälle hat kann und soll natürlich auch die Liste erweitern.
+Wer moch mehr Einfaelle hat kann und soll natuerlich auch die Liste erweitern.
 
 Pflicht für Aufgabe 2:
 - get() Methode *accounts[] erstellen
 
-Glaube Pflicht für Aufgabe 2:
-- verhindern von mehr als 10 Konten pro Kunde
-
 NiceToHave
-- Überprüfung Korrektheit der Datumseingaben
-- Überprüfung Korrektheit der Datumseingaben
-- Überprüfung Länge Kontonummer
-- Überprüfung Länge Pin
+- Ueberpruefung Korrektheit der Datumseingaben
+- Ueberpruefung Korrektheit der Uhrzeiteingaben
+- Ueberpruefung Laenge Kontonummer
+- Ueberpruefung Laenge Pin
+- verhindern von mehr als 10 Konten pro Kunde

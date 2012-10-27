@@ -14,7 +14,7 @@ tmoney::tmoney(double amount, string currency)
 /* Standardkonstruktor */
 tmoney::tmoney()
 {
-  set(0, "Euro");
+  set(12.54, "Euro");
 }
 
 void tmoney::set(double amount, string currency)
@@ -25,5 +25,5 @@ void tmoney::set(double amount, string currency)
 
 void tmoney::print()
 {
-  cout << amount << " " << currency << flush;
+  cout << fixed << setprecision(2) << amount << " " << currency << flush;
 }

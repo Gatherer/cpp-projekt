@@ -22,13 +22,16 @@ void enter()
 {
   cout << "Press enter to continue...";
   cin.get();
-  system("clear");
+// fuer Linux
+//  system("clear");
+
+// fuer Windows
+  system("cls");
 }
 
 taccount anlegenAccount(tcustomer *customer, string kontonummer, string pin) 
 {
   taccount dummy(customer, kontonummer, pin);
-//  customer->setAccount(&dummy);
   
   return dummy;
 }
@@ -49,8 +52,8 @@ int main()
   enter();
   /* Account 1 anlegen */
   {
-    taccount A1 = anlegenAccount(&C1, "1234567890", "1234");
-  
+    taccount A1(&C1, "1234567890", "1234");
+
     /* Ausgabe Konto 1 */
     cout << "---------------------------" << endl;
     cout << "Ausgabe Konto 1:" << endl;
@@ -63,7 +66,7 @@ int main()
     
     /* Account 2 anlegen */
     {
-      taccount A2 = anlegenAccount(&C1, "0987654321", "4321"); 
+	  taccount A2(&C1, "0987654321", "4321");
       /* Ausgabe Konto 2 */
       cout << "---------------------------" << endl;
       cout << "Ausgabe Konto 2:" << endl;
