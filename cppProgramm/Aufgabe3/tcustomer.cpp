@@ -10,16 +10,15 @@ using namespace std;
    amountAccounts mit 0 initialisiert */
 /* Initalisierung von *account mit NULL nur damit bei der Ausgabe definierte
    Werte sichtbar sind. */
-tcustomer::tcustomer(string name, string surname, tdate birthday, string street, string housenumber, string zipcode, string city)
+tcustomer::tcustomer(string name, tdate birthday, string street, string housenumber, string zipcode, string city)
 {
-  tcustomer::set(name, surname, birthday, street, housenumber, zipcode, city);
+  tcustomer::set(name, birthday, street, housenumber, zipcode, city);
   this -> amountAccounts = 0;
 }
 
-void tcustomer::set(string name, string surname, tdate birthday, string street, string housenumber, string zipcode, string city)
+void tcustomer::set(string name, tdate birthday, string street, string housenumber, string zipcode, string city)
 {
   this -> name = name;
-  this -> surname = surname;
   this -> birthday = birthday;
   this -> street = street;
   this -> housenumber = housenumber;
@@ -32,15 +31,18 @@ void tcustomer::print()
 { 
   int i;
   
-  cout << name << " " << surname << endl;
+  cout << name << endl;
   cout << street << " " << housenumber << endl;
   cout << zipcode << " " << city << endl;
   cout << "geboren am: "; birthday.print(); cout << endl;
   cout << "Konten:" << flush;
+  cout << setfill(' ');
   for (i = 0; i < amountAccounts; i++)
   {
+    tmoney dummyMoney = (*accounts[i]).get_money();
     cout << endl; 
-    cout << "- Kontonummer: " << (*accounts[i]).get_accountNumber() << flush;
+    cout << "- Kontonummer: " << setw(11) << right << (*accounts[i]).get_accountNumber() 
+         << " (Kontostand:"; dummyMoney.print(); cout << ")" <<flush;
   }
 }
 

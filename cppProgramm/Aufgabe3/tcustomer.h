@@ -16,16 +16,15 @@ class tcustomer
 {
   public:
 	/* Konstruktoren */
-    tcustomer(std::string name, std::string surname, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
+    tcustomer(std::string name, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
               std::string city);
 
     /* Dekonstruktor */
 
 	/* set() und get() Methoden */
-    void set(std::string name, std::string surname, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
+    void set(std::string name, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
              std::string city);
-	string get_name() { return name; }
-    string get_surname() { return surname; }
+    string get_name() { return name; }
     tdate get_birthday() { return birthday; }
     string get_street() { return street; }
     string get_housenumber() { return housenumber; }
@@ -43,7 +42,6 @@ class tcustomer
     
   private:
     std::string name;
-    std::string surname;
     std::string street;
     std::string housenumber;
     std::string zipcode;
@@ -52,7 +50,7 @@ class tcustomer
     taccount *accounts[MAXACCOUNTS];
     int amountAccounts;
 
-	friend class taccount;
-	void setAccount(taccount *account);
+    friend class taccount;
+    void setAccount(taccount *account);
 };
 #endif /* TCUSTOMER_H_ */

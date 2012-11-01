@@ -7,21 +7,23 @@
 class tmoney 
 {
   public:
-	/* Konstruktoren */
+    /* Konstruktoren */
     tmoney();
-    tmoney(double amount, std::string currency="Euro");
+    tmoney(double amount, std::string currency="EUR");
     
-	/* Dekonstruktor */
+    /* Dekonstruktor */
 
-	/* set() und get() Methoden */
+    /* set() und get() Methoden */
     void set(double amount, std::string currency);
     
-	double get_amount() { return amount; }
+    double get_amount() { return amount; }
     string get_currency() { return currency; }
 
-	/* print Methoden */
-	void print();
+    /* print Methoden */
+    void print();
 
+    void add(tmoney amountChange);
+    void sub(tmoney amountChange);
   private:
     double amount;
     std::string currency;

@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : cppProjekt.cpp
-// Author      : Glatte, Thomas; Gruender Jessica, Schlabeck Mirco
-// Version     : 0.2
+// Author      : Glatte, Thomas; Gruender Jessica, Schlabeck Mirko
+// Version     : 0.3
 // Description : main file for our c++ projekt
 //============================================================================
 
@@ -12,85 +12,53 @@
 #include <cstdlib>
 using namespace std;
 
+#include "tbooking.h"
 #include "tdate.h"
 #include "ttime.h"
 #include "tmoney.h"
 #include "tcustomer.h"
 #include "taccount.h"
+#include "tbank.h"
 
 void enter()
 {
   cout << "Press enter to continue...";
   cin.get();
-// fuer Linux
-//  system("clear");
+//  fuer Linux
+  system("clear");
 
 // fuer Windows
-  system("cls");
-}
-
-taccount anlegenAccount(tcustomer *customer, string kontonummer, string pin) 
-{
-  taccount dummy(customer, kontonummer, pin);
-  
-  return dummy;
+//  system("cls");
 }
 
 int main()
 {
-  /* Kunde 1 anlegen */
-  tdate D2(3, 10, 2012);
-  tcustomer C1("Klaus", "Kleber", D2, "Luxenburger Strasse", "3a", "13593", "Berlin");
+  tdate D1(7, 7, 1977);
+  tdate D2(8, 8, 1988);
   
-  /* Ausgabe Kunde 1 */
-  cout << "---------------------------" << endl;
-  cout << "Ausgabe Kunde  : " << endl;
-  cout << "Klaus Kleber   : " << endl; 
-  cout << "---------------------------" << endl;
-  C1.print(); cout << endl << endl;
+  tcustomer C1("Geldquelle", tdate(), "", "", "", "");
+  tcustomer C2("Egon Muster", D1, "Mustergasse", "3a", "99899", "Musterstadt");
+  tcustomer C3("Rudolf Rednose", D2, "Berliner Strasse", "17", "10999", "Berlin");
   
+  tbank B1("Berliner Bank", "10020000");
+  
+  taccount A1(&C1, &B1, "0", "0000");
+  taccount A2(&C2, &B1, "1234567890", "9999");
+  taccount A3(&C3, &B1, "9876543210", "0101");
+  taccount A4(&C2, &B1, "111333555", "1357");
+  
+  tbooking BU1(tmoney(150.0), &A1, &A2, tdate(), ttime(), "Startguthaben");
+  tbooking BU2(tmoney(50.0), &A2, &A4, tdate(), ttime(), "Umbuchung");
+  tbooking BU3(tmoney(39.9), &A2, &A3, tdate(), ttime(), "Rechnung 4711");
+  
+  cout << "Kunde 1"<< endl; C2.print(); cout << endl;
+  cout << "Kunde 2"<< endl; C3.print(); cout << endl;
+  cout << "Bank 1" << endl; B1.print(); cout << endl;
   enter();
-  /* Account 1 anlegen */
-  {
-    taccount A1(&C1, "1234567890", "1234");
-
-    /* Ausgabe Konto 1 */
-    cout << "---------------------------" << endl;
-    cout << "Ausgabe Konto 1:" << endl;
-    cout << "---------------------------" << endl;
-    A1.print();
-    cout << endl;
-    
-    cout << endl << "Ausgabe amountAccount (sollte 1 sein): " << C1.get_amountAccounts() << endl;
-    enter();
-    
-    /* Account 2 anlegen */
-    {
-	  taccount A2(&C1, "0987654321", "4321");
-      /* Ausgabe Konto 2 */
-      cout << "---------------------------" << endl;
-      cout << "Ausgabe Konto 2:" << endl;
-      cout << "---------------------------" << endl;
-      A2.print();
-      cout << endl;
-        
-      cout << endl << "Ausgabe amountAccount (sollte 2 sein): " << C1.get_amountAccounts() << endl;
-      enter();
-    }
-    /* Ausgabe Kunde 1 */
-    cout << "---------------------------" << endl;
-    cout << "Ausgabe Kunde:" << endl;
-    cout << "Klause Kleber   : " << endl; 
-    cout << "---------------------------" << endl;
-    C1.print(); cout << endl << endl;
-    
-    /* Account 2 wird zerstört */
-    cout << endl << "Ausgabe amountAccount: (sollte 1 sein): " << C1.get_amountAccounts() << endl;
-    enter();
-  }
-
-  /* Account 1 wird zerstört */
-  cout << endl << "Ausgabe amountAccount: (sollte 0 sein): " << C1.get_amountAccounts() << endl;
+  A2.printAccountStatement();
+  cout << endl;
+  A2.printAccountStatement();
+  
   enter();
   return 0;
 }
