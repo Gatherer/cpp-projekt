@@ -23,6 +23,11 @@ void tmoney::set(double amount, string currency)
   this -> currency = currency;
 }
 
+void tmoney::set_amount(double amount)
+{
+  this -> amount = amount;
+}
+
 void tmoney::print()
 {
   cout << right << fixed << setprecision(2) << setw(11) << amount << " " << currency << flush;

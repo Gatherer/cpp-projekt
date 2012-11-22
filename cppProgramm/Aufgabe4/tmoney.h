@@ -15,6 +15,7 @@ class tmoney
 
     /* set() und get() Methoden */
     void set(double amount, std::string currency);
+    void set_amount(double amount);
     
     double get_amount() { return amount; }
     string get_currency() { return currency; }

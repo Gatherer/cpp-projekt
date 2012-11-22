@@ -23,6 +23,7 @@ class taccount
   public:
     /* Konstruktoren */
     taccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin);
+    taccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin, bool OK);
     
 	/* Destruktor */
 	virtual ~taccount();
@@ -37,7 +38,7 @@ class taccount
 
 	/* print Methoden */
 	void print();
-  void printAccountStatement();
+  virtual void printAccountStatement();
 
   private:
     tcustomer *customer;

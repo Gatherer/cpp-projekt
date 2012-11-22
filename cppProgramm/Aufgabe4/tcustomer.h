@@ -51,6 +51,8 @@ class tcustomer
     int amountAccounts;
 
     friend class taccount;
+    friend class tcurrentaccount;
+    friend class tsavingsaccount;
     void setAccount(taccount *account);
 };
 #endif /* TCUSTOMER_H_ */

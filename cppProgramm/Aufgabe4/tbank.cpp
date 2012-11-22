@@ -16,7 +16,11 @@ tbank::tbank(string bankName, string bankleitzahl)
 /* Destruktor */
 tbank::~tbank()
 {
-
+  int k = amountBankaccounts;
+  for (int i = 0; i < k; i++)
+  {
+    delete accounts[i];
+  }
 }
 
 void tbank::set(string bankName, string bankleitzahl)

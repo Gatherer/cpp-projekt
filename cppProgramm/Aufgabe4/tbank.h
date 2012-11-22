@@ -26,7 +26,7 @@ class tbank
     string get_bankName() { return bankName; }
     string get_bankleitzahl() { return bankleitzahl; }
     int get_amountBankaccounts() { return amountBankaccounts; }
-//  get Methode fuer accounts vielleicht noch
+    taccount *getAccount(int i) {return accounts[i]; }
     
     /* print Methoden */
     void print();
@@ -38,6 +38,8 @@ class tbank
     int amountBankaccounts;
     
     friend class taccount;
+    friend class tcurrentaccount;
+    friend class tsavingsaccount;
     
     void deleteBankAccount();
     void setBankaccount(taccount *account);
