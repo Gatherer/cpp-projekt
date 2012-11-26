@@ -30,7 +30,6 @@ class tcustomer
     string get_housenumber() { return housenumber; }
     string get_zipcode() { return zipcode; }
     string get_city() { return city; }
-//  get Methode fuer taccount fehlt noch    
     int get_amountAccounts() { return amountAccounts; } 
 
 	/* print Methoden */
@@ -53,6 +52,7 @@ class tcustomer
     friend class taccount;
     friend class tcurrentaccount;
     friend class tsavingsaccount;
+	friend class tfixeddepositaccount;
     void setAccount(taccount *account);
 };
 #endif /* TCUSTOMER_H_ */

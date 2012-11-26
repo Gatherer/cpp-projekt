@@ -9,12 +9,14 @@ class tmoney;
 class taccount;
 
 /* Klasse taccount */
-class tsavingsaccount: public taccount
+class tsavingsaccount: virtual public taccount
 {
   public:
     /* Konstruktoren */
     tsavingsaccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin, 
       double zinsen);
+	tsavingsaccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin,
+      double zinsen, bool ZK, int accountType);
     
   /* Destruktor */
   virtual ~tsavingsaccount();

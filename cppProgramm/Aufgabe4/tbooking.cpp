@@ -12,29 +12,6 @@ using namespace std;
 /* Allgemeiner Konstruktor */
 tbooking::tbooking(tmoney amount, taccount *account, taccount *contraaccount, tdate date, ttime time, string text)
 {
-  set(amount, account, contraaccount, date, time, text);
-}
-
-tbooking::tbooking(tbooking *booking)
-{
-  this -> amount = booking->amount;
-  this -> account = booking->account;
-  //this -> account = new taccount (booking->account);
-
-  //this -> contraaccount = new taccount (booking->contraaccount);
-  this -> contraaccount= booking->contraaccount;
-  this -> date = booking -> date;
-  this -> time = booking -> time;
-  this -> text = booking->text;
-}
-
-tbooking::~tbooking()
-{
-
-}
-
-void tbooking::set(tmoney amount, taccount *account, taccount *contraaccount, tdate date, ttime time, string text)
-{
   this -> amount = amount;
   this -> account = account;
   this -> contraaccount = contraaccount;
@@ -42,12 +19,40 @@ void tbooking::set(tmoney amount, taccount *account, taccount *contraaccount, td
   this -> time = time;
   this -> text = text;
   this -> printed = false;
-  //this -> printed_account = false;
-  //this -> printed_contraaccount = false;
-  account->setAccountBooking(this);
-  contraaccount->setContraBooking(this);
-  
-  
+
+  if(account->get_accountType() > 1)
+  {
+    if(amount.get_amount() < account->get_possibleMoney().get_amount())
+	{
+      account->setAccountBooking(this);
+      contraaccount->setContraBooking(this);
+	}
+	else
+	{
+       print();
+	}
+  }
+  else
+  {
+    account->setAccountBooking(this);
+    contraaccount->setContraBooking(this);
+  }
+}
+
+tbooking::tbooking(tbooking *booking)
+{
+  this -> amount = booking->amount;
+  this -> account = booking->account;
+
+  this -> contraaccount= booking->contraaccount;
+  this -> date = booking -> date;
+  this -> time = booking -> time;
+  this -> text = booking -> text;
+}
+
+tbooking::~tbooking()
+{
+
 }
 
 void tbooking::set_amount()
@@ -57,5 +62,8 @@ void tbooking::set_amount()
 
 void tbooking::print()
 {
-  
+   cout << "Buchung kann nicht durchgeführt werden da die Deckung nicht ausreicht." << endl;
+   cout << setfill(' ');
+   cout << " |"; amount.print(); cout << " | " << left << setw(30) << account->get_customer()->get_name() << "| " 
+	    " | " << left << setw(30) << contraaccount->get_customer()->get_name()<< text << endl;
 }

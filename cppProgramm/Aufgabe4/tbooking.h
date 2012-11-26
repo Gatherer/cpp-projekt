@@ -26,14 +26,9 @@ class tbooking
     virtual ~tbooking();
 
     /* set() und get() Methoden */
-    void set(tmoney amount, taccount *account, taccount *contraaccount, tdate date, ttime time, std::string text);
-    //void set_printedcontra() { printed_contraaccount = true; }
-    //void set_printed() { printed_account = true; }
-    void set_printed(){printed=true;}
+    void set_printed(){ printed = true; }
     void set_amount();
     bool get_printed(){return printed;}
-    //bool get_printed() {return printed_account; }
-    //bool get_printedcontra() {return printed_contraaccount; }
     tdate get_date() { return date; }
     string get_text() { return text; }
     tmoney get_amount() { return amount; }
@@ -51,7 +46,5 @@ class tbooking
     std::string text;
     tmoney amount;
     bool printed;
-    //bool printed_account;
-    //bool printed_contraaccount;
 };
 #endif /* TBOOKING_H_ */

@@ -12,11 +12,17 @@ using namespace std;
 
 /* Allgemeiner Konstruktor */
 tsavingsaccount::tsavingsaccount(tcustomer *customer, tbank *bank, string accountNumber, string pin,
-  double zinsen): taccount(customer, bank, accountNumber, pin, false)
+  double zinsen): taccount(customer, bank, accountNumber, pin, false, 3)
 {
   this -> zinsen = zinsen;
   customer->setAccount(this);
   bank->setBankaccount(this);
+}
+
+tsavingsaccount::tsavingsaccount(tcustomer *customer, tbank *bank, string accountNumber, string pin,
+  double zinsen, bool ZK, int accountType): taccount(customer, bank, accountNumber, pin, false, 3)
+{
+  this -> zinsen = zinsen;
 }
 
 /* Destruktor */

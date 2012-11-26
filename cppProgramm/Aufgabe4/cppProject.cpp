@@ -21,16 +21,17 @@ using namespace std;
 #include "tbank.h"
 #include "tcurrentaccount.h"
 #include "tsavingsaccount.h"
+#include "tfixeddepositaccount.h"
 
 void enter()
 {
   cout << "Press enter to continue...";
   cin.get();
 //  fuer Linux
-  system("clear");
+//  system("clear");
 
 // fuer Windows
-//  system("cls");
+  system("cls");
 }
 
 int main()
@@ -47,11 +48,11 @@ int main()
   taccount             *A1 = new taccount(&C1, B1, "0", "0000");
   tcurrentaccount      *A2 = new tcurrentaccount(&C2, B1, "1234567890", "9999", tmoney(100.00));
   tsavingsaccount      *A3 = new tsavingsaccount(&C3, B1, "9876543210", "0101", 1.5);
-  //tfixeddepositaccount *A4 = new tfixeddepositaccount(&C2, B1, "111333555", "1357", tmoney(100.00), 1.5);
-  
+  tfixeddepositaccount *A4 = new tfixeddepositaccount(&C2, B1, "111333555", "1357", tmoney(100.00), 1.5);
+
   tbooking BU1(tmoney(150.0), A1, A2, tdate(), ttime(), "Startguthaben");
-//  tbooking BU2(tmoney(50.0), A2, A4, tdate(), ttime(), "Umbuchung");
-  tbooking BU3(tmoney(39.9), A2, A3, tdate(), ttime(), "Rechnung 4711");
+  tbooking BU2(tmoney(50.0), A2, A4, tdate(), ttime(), "Umbuchung");
+  tbooking BU3(tmoney(339.9), A2, A3, tdate(), ttime(), "Rechnung 4711");
   
   cout << "Kunde 1"<< endl; C2.print(); cout << endl;
   cout << "Kunde 2"<< endl; C3.print(); cout << endl;
@@ -60,11 +61,10 @@ int main()
   
   for (int i = 0; i < B1->get_amountBankaccounts(); i++)
   {
-//    cout << "adresse vor Bankauszug" << (B1->getAccount(i)) << endl;
     (B1->getAccount(i))->printAccountStatement();
     cout << endl;
+	enter();
   }
-  
   cout << "Jetzt wird die Bank vernichtet und damit auch die Konten der Bank:" << endl;
   delete B1;
   

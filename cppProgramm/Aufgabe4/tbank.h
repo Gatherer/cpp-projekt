@@ -40,6 +40,7 @@ class tbank
     friend class taccount;
     friend class tcurrentaccount;
     friend class tsavingsaccount;
+	friend class tfixeddepositaccount;
     
     void deleteBankAccount();
     void setBankaccount(taccount *account);
