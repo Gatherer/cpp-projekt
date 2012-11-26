@@ -16,7 +16,7 @@ class tcurrentaccount: virtual public taccount
     tcurrentaccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin, 
       tmoney dispo);
 	tcurrentaccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin, 
-      tmoney dispo, bool ZK, int accountType);
+      tmoney dispo, int accountType);
     
   /* Destruktor */
   virtual ~tcurrentaccount();

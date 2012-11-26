@@ -52,7 +52,7 @@ int main()
 
   tbooking BU1(tmoney(150.0), A1, A2, tdate(), ttime(), "Startguthaben");
   tbooking BU2(tmoney(50.0), A2, A4, tdate(), ttime(), "Umbuchung");
-  tbooking BU3(tmoney(339.9), A2, A3, tdate(), ttime(), "Rechnung 4711");
+  tbooking BU3(tmoney(39.9), A2, A3, tdate(), ttime(), "Rechnung 4711");
   
   cout << "Kunde 1"<< endl; C2.print(); cout << endl;
   cout << "Kunde 2"<< endl; C3.print(); cout << endl;

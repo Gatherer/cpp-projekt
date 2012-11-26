@@ -15,8 +15,8 @@ class tsavingsaccount: virtual public taccount
     /* Konstruktoren */
     tsavingsaccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin, 
       double zinsen);
-	tsavingsaccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin,
-      double zinsen, bool ZK, int accountType);
+	tsavingsaccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin, 
+      double zinsen, int accountType);
     
   /* Destruktor */
   virtual ~tsavingsaccount();

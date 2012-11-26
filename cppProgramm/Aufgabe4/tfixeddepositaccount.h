@@ -8,11 +8,10 @@
 
 /* Klassen fuer Vorwertsdeklaration bekannt machen */
 class tmoney;
-class taccount;
 class tcurrentaccount;
 class tsavingsaccount;
 
-/* Klasse taccount */
+/* Klasse tfixeddepositaccount */
 class tfixeddepositaccount: public tcurrentaccount, public tsavingsaccount
 {
   public:

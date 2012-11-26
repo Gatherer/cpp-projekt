@@ -20,7 +20,7 @@ tsavingsaccount::tsavingsaccount(tcustomer *customer, tbank *bank, string accoun
 }
 
 tsavingsaccount::tsavingsaccount(tcustomer *customer, tbank *bank, string accountNumber, string pin,
-  double zinsen, bool ZK, int accountType): taccount(customer, bank, accountNumber, pin, false, 3)
+  double zinsen, int accountType): taccount(customer, bank, accountNumber, pin, false, 3)
 {
   this -> zinsen = zinsen;
 }
@@ -39,5 +39,5 @@ void tsavingsaccount::set_zinsen(double zinsen)
 void tsavingsaccount::printAccountStatement()
 {
   taccount::printAccountStatement();
-  cout << "Zinssatz: " << zinsen << " %" << endl;
+  cout << "Zinssatz:                   " << zinsen << " %" << endl;
 }

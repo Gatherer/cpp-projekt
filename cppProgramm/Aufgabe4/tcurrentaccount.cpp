@@ -21,7 +21,7 @@ tcurrentaccount::tcurrentaccount(tcustomer *customer, tbank *bank, string accoun
 
 /* Konstruktor wenn tcurrentaccount die OK von tfixeddepositaccount ist */
 tcurrentaccount::tcurrentaccount(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin, 
-      tmoney dispo, bool ZK, int accountType): taccount(customer, bank, accountNumber, pin, false, accountType)
+      tmoney dispo, int accountType): taccount(customer, bank, accountNumber, pin, false, accountType)
 {
   this -> dispo = dispo;
 }
@@ -40,7 +40,7 @@ void tcurrentaccount::set_dispo(double amount)
 void tcurrentaccount::printAccountStatement()
 {
   taccount::printAccountStatement();
-  cout << "max. Dispo: "; dispo.print(); cout << endl;
+  cout << "max. Dispo:            "; dispo.print(); cout << endl;
 }
 
 tmoney tcurrentaccount::get_possibleMoney()

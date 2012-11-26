@@ -13,8 +13,10 @@ using namespace std;
 #include "ttime.h"
 
 /* Allgemeiner Konstruktor */
-tfixeddepositaccount::tfixeddepositaccount(tcustomer *customer, tbank *bank, string accountNumber, string pin, tmoney dispo,
-  double zinsen): tcurrentaccount(customer, bank, accountNumber, pin, dispo, false, 4), tsavingsaccount(customer, bank, accountNumber, pin, zinsen, false, 4)
+tfixeddepositaccount::tfixeddepositaccount(tcustomer *customer, tbank *bank, string accountNumber, string pin, tmoney dispo, double zinsen): 
+	tcurrentaccount(customer, bank, accountNumber, pin, dispo, 4), 
+	tsavingsaccount(customer, bank, accountNumber, pin, zinsen, 4),
+	taccount(customer, bank, accountNumber, pin, false, 4)
 {
   customer->setAccount(this);
   bank->setBankaccount(this);
@@ -23,13 +25,14 @@ tfixeddepositaccount::tfixeddepositaccount(tcustomer *customer, tbank *bank, str
 /* Destruktor */
 tfixeddepositaccount::~tfixeddepositaccount()
 {
-  cout << "tsavingsaccount:          Sparkonto           (KtoNr. " << taccount::get_accountNumber() << ") wird vernichtet!" << endl;
+  cout << "tsavingsaccount:          Tagesgeldkonto      (KtoNr. " << taccount::get_accountNumber() << ") wird vernichtet!" << endl;
 }
 
 void tfixeddepositaccount::printAccountStatement()
 {
-  //taccount::printAccountStatement();
- // cout << "Zinssatz: " << zinsen << " %" << endl;
+  taccount::printAccountStatement();
+  cout << "max. Dispo:            "; tcurrentaccount::get_dispo().print(); cout << endl;
+  cout << "Zinssatz:                   " << tsavingsaccount::get_zinsen() << " %" << endl;
 }
 
 tmoney tfixeddepositaccount::get_possibleMoney()
