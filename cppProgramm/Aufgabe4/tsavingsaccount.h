@@ -24,7 +24,8 @@ class tsavingsaccount: virtual public taccount
   /* set() und get() Methoden */
   void set_zinsen(double zinsen);
   double get_zinsen() { return zinsen; }
-
+  virtual tmoney get_possibleMoney();
+  
   /* print Methoden */
   void printAccountStatement();
   

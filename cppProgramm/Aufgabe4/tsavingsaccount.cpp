@@ -41,3 +41,11 @@ void tsavingsaccount::printAccountStatement()
   taccount::printAccountStatement();
   cout << "Zinssatz:                   " << zinsen << " %" << endl;
 }
+
+tmoney tsavingsaccount::get_possibleMoney()
+{
+  tmoney dummy;
+
+  dummy.add(taccount::get_money());
+  return dummy;
+}

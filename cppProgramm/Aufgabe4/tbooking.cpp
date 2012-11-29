@@ -23,14 +23,14 @@ tbooking::tbooking(tmoney amount, taccount *account, taccount *contraaccount, td
   if(account->get_accountType() > 1)
   {
     if(amount.get_amount() < account->get_possibleMoney().get_amount())
-	{
+	  {
       account->setAccountBooking(this);
       contraaccount->setContraBooking(this);
-	}
-	else
-	{
+	  }
+	  else
+	  {
        print();
-	}
+	  }
   }
   else
   {
