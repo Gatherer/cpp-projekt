@@ -27,7 +27,7 @@ tdate::tdate()
 void tdate::print()
 {
   cout << setfill('0');                               /* bei einstelligen Zahlen Fuellwert 0 */
-  cout << setw(2) << day << "."			              /* setw() ist volatile */
+  cout << right << setw(2) << day << "."			              /* setw() ist volatile */
 	   << setw(2) << month << "." 
 	   << setw(4) << year << flush;
 }

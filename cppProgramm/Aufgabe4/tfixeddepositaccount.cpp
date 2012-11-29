@@ -25,7 +25,7 @@ tfixeddepositaccount::tfixeddepositaccount(tcustomer *customer, tbank *bank, str
 /* Destruktor */
 tfixeddepositaccount::~tfixeddepositaccount()
 {
-  cout << "tsavingsaccount:          Tagesgeldkonto      (KtoNr. " << taccount::get_accountNumber() << ") wird vernichtet!" << endl;
+  cout << "tfixeddepositaccount:     Tagesgeldkonto      (KtoNr. " << taccount::get_accountNumber() << ") wird vernichtet!" << endl;
 }
 
 void tfixeddepositaccount::printAccountStatement()

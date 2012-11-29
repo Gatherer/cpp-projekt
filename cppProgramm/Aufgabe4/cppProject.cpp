@@ -55,9 +55,12 @@ int main()
   tbooking BU3(tmoney(39.9), A2, A3, tdate(), ttime(), "Rechnung 4711");
   tbooking BU4(tmoney(339.9), A2, A3, tdate(), ttime(), "nicht buchbar 1");
   tbooking BU5(tmoney(339.9), A3, A2, tdate(), ttime(), "nicht buchbar 2");
+  tbooking BU6(tmoney(339.9), A4, A2, tdate(), ttime(), "nicht buchbar 3");
   
-  cout << "Kunde 1"<< endl; C2.print(); cout << endl;
-  cout << "Kunde 2"<< endl; C3.print(); cout << endl;
+  enter();
+  
+  cout << "Kunde 1"<< endl; C2.print(); cout << endl << endl;
+  cout << "Kunde 2"<< endl; C3.print(); cout << endl << endl;
   cout << "Bank 1" << endl; B1->print(); cout << endl;
   enter();
   

@@ -27,7 +27,7 @@ ttime::ttime()
 void ttime::print()
 {
   cout << setfill('0');                               /* bei einstelligen Zahlen Fuellwert 0 */
-  cout << setw(2) << hour << ":"              /* setw() ist volatile */
+  cout << setw(2) << hour << ":"                      /* setw() ist volatile */
 	   << setw(2) << min << ":" 
 	   << setw(2) << sec << flush;
 }
