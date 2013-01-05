@@ -30,16 +30,20 @@ void enter()
   cout << "Press enter to continue...";
   cin.get();
 //  fuer Linux
-    system("clear");
+//    system("clear");
 
 // fuer Windows
-//  system("cls");
+  system("cls");
 }
 
 int main()
 {
-   char *Dateiname = (char *) "transaction.list";
+   //  fuer Windows
+   char *Dateiname = (char *) "C:/Users/Thomas/Documents/GitHub/cpp-projekt/cppProgramm/Aufgabe5/transaction.list";
    
+   //  fuer Linux
+   // char *Dateiname = (char *) "transaction.list";
+
    tdate Datum1(7, 7, 1977);
    tdate Datum2(8, 8, 1988);
    tdate Datum3(6, 6, 1966);
@@ -61,7 +65,7 @@ int main()
   
    ttransactionlist TL(Dateiname);
 /* 
-   for (unsigned i = 0; i < TL.getTransactionsCount(); i++)
+   for (unsigned i = 0; i < TL.get_TransactionsCount(); i++)
    {
       taccount *Konto = NULL, *Gegenkonto = NULL;
       Konto           = NULL;

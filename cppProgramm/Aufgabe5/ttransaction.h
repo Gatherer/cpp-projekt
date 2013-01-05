@@ -13,12 +13,13 @@ class ttransaction
   public:
     /* Konstruktoren */
     ttransaction();
+    ttransaction(istream &istr);
     
     /* Destruktor */
     virtual ~ttransaction();
 
     /* set() und get() Methoden */
-        
+
   private:
     std::string accountNumber;
     std::string contraAccountNumber;
@@ -26,12 +27,6 @@ class ttransaction
     std::string contraBankleitzahl;
     std::string buchungstext;
     tmoney bookingAmount;
-
-//    friend ostream &operator<< (ostream &ostr, ttransaction &transa);
-  //  friend ifstream 
-    
-    
-//    friend class taccount;
 };
 
 #endif /* TTRANSACTION_H_ */

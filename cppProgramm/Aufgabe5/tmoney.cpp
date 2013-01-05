@@ -1,6 +1,7 @@
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 #include "tmoney.h"
@@ -9,6 +10,46 @@ using namespace std;
 tmoney::tmoney(double amount, string currency)
 {
   set(amount, currency);
+}
+
+tmoney::tmoney(istream &istr)
+{
+  string zeile;
+  string amount_new;
+  int stringStart;
+  int stringStop;
+
+  getline(istr, zeile, '\n');
+  while(!(istr.eof()))
+  {
+    if(zeile.compare(6, 8, "<Amount>") == 0)
+    {
+      stringStart = (zeile.find_first_of('>')+1);
+      stringStop  = (zeile.find_last_of('<'));
+      amount_new = (zeile.substr(stringStart, stringStop-stringStart));
+      amount = atof(amount_new.c_str());
+      cout << zeile << endl;
+      getline(istr, zeile, '\n');
+    }
+    else if(zeile.compare(6, 10, "<Currency>") == 0)
+    {
+      stringStart = (zeile.find_first_of('>')+1);
+      stringStop  = (zeile.find_last_of('<'));
+      currency = zeile.substr(stringStart, stringStop-stringStart);
+      cout << zeile << endl;
+      getline(istr, zeile, '\n');
+    }
+    else if(zeile.compare(4, 8, "</Money>") == 0)
+    {
+      cout << zeile << endl;
+      break;
+    }
+    else
+    {
+      cout << "error: Fehler im Dateiformat " << zeile << endl;
+      break;
+    }
+  }
 }
 
 /* Standardkonstruktor */

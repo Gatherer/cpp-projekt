@@ -23,11 +23,13 @@ class ttransactionlist
     virtual ~ttransactionlist();
 
     /* set() und get() Methoden */
+    int get_TransactionsCount();
     
   private:
     tdate transactionDate;
     ttime transactionTime;
-    std::vector<ttransaction> trans;
+    vector<ttransaction> trans;
+    int TransactionsCount;
     
 //    friend ostream &operator<< (ostream &ostr, ttransaction &transa);
     

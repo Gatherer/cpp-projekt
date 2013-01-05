@@ -10,6 +10,7 @@ class tmoney
     /* Konstruktoren */
     tmoney();
     tmoney(double amount, std::string currency="EUR");
+    tmoney(istream &istr);
     
     /* Dekonstruktor */
 
@@ -25,6 +26,7 @@ class tmoney
 
     void add(tmoney amountChange);
     void sub(tmoney amountChange);
+  
   private:
     double amount;
     std::string currency;
