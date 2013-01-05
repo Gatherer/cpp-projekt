@@ -37,10 +37,12 @@ class tbank
     std::string bankleitzahl;
     int amountBankaccounts;
     
+    friend ostream &operator<< (ostream &ostr, tbank &bank);
+    
     friend class taccount;
     friend class tcurrentaccount;
     friend class tsavingsaccount;
-	friend class tfixeddepositaccount;
+    friend class tfixeddepositaccount;
     
     void deleteBankAccount();
     void setBankaccount(taccount *account);

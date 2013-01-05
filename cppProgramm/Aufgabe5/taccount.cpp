@@ -65,7 +65,8 @@ void taccount::set(tcustomer *customer, tbank *bank, string accountNumber, strin
 /* print methode .. gibt Grundangaben aus */
 void taccount::print()
 {
-  customer->print();
+//  customer->print(); .... raus wegen überladen <<
+  cout << customer;
   cout << endl;
 // vielleicht noch Ausgabe des Banknamen + Bankleitzahl bei dem das Konto ist  
   cout << "Kontonummer      : " << accountNumber << endl;

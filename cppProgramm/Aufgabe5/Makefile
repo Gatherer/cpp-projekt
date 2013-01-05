@@ -1,10 +1,16 @@
 all: cppProject
 
-cppProject: tdate.o ttime.o tcurrentaccount.o tfixeddepositaccount.o tsavingsaccount.o tmoney.o tcustomer.o taccount.o tbank.o tbooking.o cppProject.o 
-	g++ tdate.o ttime.o tcurrentaccount.o tfixeddepositaccount.o tsavingsaccount.o tmoney.o tcustomer.o taccount.o tbank.o tbooking.o cppProject.o -o cppProject
+cppProject: tdate.o ttime.o ttransaction.o ttransactionlist.o tcurrentaccount.o tfixeddepositaccount.o tsavingsaccount.o tmoney.o tcustomer.o taccount.o tbank.o tbooking.o cppProject.o 
+	g++ tdate.o ttime.o ttransaction.o ttransactionlist.o tcurrentaccount.o tfixeddepositaccount.o tsavingsaccount.o tmoney.o tcustomer.o taccount.o tbank.o tbooking.o cppProject.o -o cppProject
 
 tcustomer.o: tcustomer.cpp tcustomer.h tdate.cpp tdate.h taccount.cpp taccount.h
 	g++ -c tcustomer.cpp
+
+ttransactionlist.o: ttransactionlist.cpp ttransactionlist.h tdate.cpp tdate.h ttime.cpp ttime.h
+	g++ -c ttransactionlist.cpp
+
+ttransaction.o: ttransaction.cpp ttransaction.h tmoney.cpp tmoney.h
+	g++ -c ttransaction.cpp
 
 tbank.o: tbank.cpp tbank.h taccount.cpp taccount.h
 	g++ -c tbank.cpp
@@ -33,7 +39,7 @@ tcurrentaccount.o: tcurrentaccount.cpp tcurrentaccount.h taccount.cpp taccount.h
 tsavingsaccount.o: tsavingsaccount.cpp tsavingsaccount.h taccount.cpp taccount.h tcustomer.cpp tcustomer.h tmoney.cpp tmoney.h tbank.cpp tbank.h
 	g++ -c tsavingsaccount.cpp
 
-cppProject.o: cppProject.cpp ttime.cpp tsavingsaccount.cpp tsavingsaccount.h tcurrentaccount.cpp tcurrentaccount.h ttime.h tdate.cpp tdate.h tmoney.cpp tmoney.h tcustomer.cpp tcustomer.h taccount.cpp taccount.h tbank.cpp tbank.h tbooking.cpp tbooking.h tfixeddepositaccount.cpp tfixeddepositaccount.h
+cppProject.o: ttransaction.h ttransaction.cpp ttransactionlist.cpp ttransactionlist.h cppProject.cpp ttime.cpp tsavingsaccount.cpp tsavingsaccount.h tcurrentaccount.cpp tcurrentaccount.h ttime.h tdate.cpp tdate.h tmoney.cpp tmoney.h tcustomer.cpp tcustomer.h taccount.cpp taccount.h tbank.cpp tbank.h tbooking.cpp tbooking.h tfixeddepositaccount.cpp tfixeddepositaccount.h
 	g++ -c cppProject.cpp
 
 clean:

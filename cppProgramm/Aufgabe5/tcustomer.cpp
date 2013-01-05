@@ -26,7 +26,9 @@ void tcustomer::set(string name, tdate birthday, string street, string housenumb
   this -> city = city; 
 }
 
+
 /* Ausgabe der Kontonummern fehlt noch */
+/*
 void tcustomer::print()
 { 
   int i;
@@ -44,6 +46,29 @@ void tcustomer::print()
     cout << "- Kontonummer: " << setw(11) << right << (*accounts[i]).get_accountNumber() 
          << " (Kontostand:"; dummyMoney.print(); cout << ")" <<flush;
   }
+}
+*/
+
+ostream &operator<< (ostream &ostr, tcustomer &kunde)
+{
+  int i;
+  
+  ostr << kunde.name << endl;
+  ostr << kunde.street << " " << kunde.housenumber << endl;
+  ostr << kunde.zipcode << " " << kunde.city << endl;
+  ostr << "geboren am: "; kunde.birthday.print(); 
+  ostr << endl;
+  ostr << "Konten:" << flush;
+  ostr << setfill(' ');
+  for (i = 0; i < kunde.amountAccounts; i++)
+  {
+    tmoney dummyMoney = (*kunde.accounts[i]).get_money();
+    ostr << endl; 
+    ostr << "- Kontonummer: " << setw(11) << right << (*kunde.accounts[i]).get_accountNumber() 
+         << " (Kontostand:"; dummyMoney.print(); 
+    ostr << ")" << flush;
+  }
+  return ostr;
 }
 
 /* wird von tcustomer Dekonstruktor aufgerufen */

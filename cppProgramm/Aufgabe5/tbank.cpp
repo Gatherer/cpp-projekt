@@ -30,6 +30,7 @@ void tbank::set(string bankName, string bankleitzahl)
   this -> amountBankaccounts = 0;
 }
 
+/*
 void tbank::print()
 {
   cout << bankName << endl;
@@ -56,6 +57,37 @@ void tbank::print()
          << " | " << right << setw(14) << (*accounts[i]).get_amountBookings()
          << " | "; (*accounts[i]).get_money().print(); cout << flush;
   }
+}
+*/
+
+ostream &operator<< (ostream &ostr, tbank &bank)
+{
+  ostr << bank.bankName << endl;
+  ostr << "Bankleitzahl : " << bank.bankleitzahl << endl;
+  ostr << "Anzahl Konten: " << bank.amountBankaccounts << endl;
+  ostr << "Kontenliste  : " << endl;
+  
+  ostr << setfill(' ');
+  ostr << left << setw(11) << "KontoNr." << "|" 
+       << left << setw(32) << " Kundenname" << "|" 
+       << left << setw(16) << " Anz. Buchungen" << "|" 
+       << left << setw(15) << " Kontostand" << endl;
+  ostr << setfill('-');
+  ostr << right << setw(12) << "|"
+       << right << setw(33) << "|"
+       << right << setw(17) << "|"
+       << right << setw(16) << "";
+  ostr << setfill(' ');
+  for (int i = 0; i < bank.amountBankaccounts; i++)
+  {
+    ostr << endl; 
+    ostr << right << setw(10) << (*bank.accounts[i]).get_accountNumber()
+         << " | " << left << setw(30) << (*bank.accounts[i]).get_customer()->get_name()
+         << " | " << right << setw(14) << (*bank.accounts[i]).get_amountBookings()
+         << " | "; (*bank.accounts[i]).get_money().print(); 
+    ostr << flush;
+  }
+  return ostr;
 }
 
 /* wird von taccount Dekonstruktor aufgerufen */

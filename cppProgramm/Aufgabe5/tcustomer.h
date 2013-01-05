@@ -22,6 +22,7 @@ class tcustomer
     /* Dekonstruktor */
 
 	/* set() und get() Methoden */
+  
     void set(std::string name, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
              std::string city);
     string get_name() { return name; }
@@ -33,7 +34,7 @@ class tcustomer
     int get_amountAccounts() { return amountAccounts; } 
 
 	/* print Methoden */
-	void print();
+//  void print();
 
 	/* sonstige Methoden */
 	void addAmountAccounts();
@@ -49,10 +50,12 @@ class tcustomer
     taccount *accounts[MAXACCOUNTS];
     int amountAccounts;
 
+    friend ostream &operator<< (ostream &ostr, tcustomer &kunde);
+    
     friend class taccount;
     friend class tcurrentaccount;
     friend class tsavingsaccount;
-	friend class tfixeddepositaccount;
+    friend class tfixeddepositaccount;
     void setAccount(taccount *account);
 };
 #endif /* TCUSTOMER_H_ */
