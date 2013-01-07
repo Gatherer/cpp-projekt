@@ -9,6 +9,7 @@ using namespace std;
 #include "tdate.h"
 #include "ttime.h"
 
+
 /* Allgemeiner Konstruktor */
 /* account anlegen
    accountType auf 1 setzen (Standardaccount)
@@ -132,7 +133,7 @@ void taccount::printAccountStatement()
         (*bookings[i]).set_printed();
         (*bookings[i]).get_date().print(); 
         cout << setfill(' ');
-        cout << " |" << (*bookings[i]).get_amount() << " | " << left << setw(30) << (*bookings[i]).get_contraAccount()->get_customer()->get_name() << "| " << (*bookings[i]).get_text() << endl;
+        cout << " |"; (*bookings[i]).get_amount().print(); cout << " | " << left << setw(30) << (*bookings[i]).get_contraAccount()->get_customer()->get_name() << "| " << (*bookings[i]).get_text() << endl;
       }
     }
     else
@@ -144,7 +145,7 @@ void taccount::printAccountStatement()
         (*bookings[i]).set_printed();
         (*bookings[i]).get_date().print(); 
         cout << setfill(' ');
-        cout << " |" << (*bookings[i]).get_amount() << " | " << left << setw(30) << (*bookings[i]).get_account()->get_customer()->get_name() << "| " << (*bookings[i]).get_text() << endl;
+        cout << " |"; (*bookings[i]).get_amount().print(); cout << " | " << left << setw(30) << (*bookings[i]).get_account()->get_customer()->get_name() << "| " << (*bookings[i]).get_text() << endl;
       }
     }
   }

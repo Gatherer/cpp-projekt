@@ -30,10 +30,10 @@ void enter()
   cout << "Press enter to continue...";
   cin.get();
 //  fuer Linux
-//    system("clear");
+    system("clear");
 
 // fuer Windows
-  system("cls");
+//  system("cls");
 }
 
 tbank *get_bank(tbank *B1, tbank *B2, string BLZ)
@@ -46,10 +46,10 @@ tbank *get_bank(tbank *B1, tbank *B2, string BLZ)
 int main()
 {
    //  fuer Windows
-   char *Dateiname = (char *) "C:/Users/Thomas/Documents/GitHub/cpp-projekt/cppProgramm/Aufgabe5/transaction.list";
+//   char *Dateiname = (char *) "C:/Users/Thomas/Documents/GitHub/cpp-projekt/cppProgramm/Aufgabe5/transaction.list";
    
    //  fuer Linux
-   // char *Dateiname = (char *) "transaction.list";
+   char *Dateiname = (char *) "transaction.list";
 
    tdate Datum1(7, 7, 1977);
    tdate Datum2(8, 8, 1988);

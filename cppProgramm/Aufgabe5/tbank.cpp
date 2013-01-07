@@ -54,7 +54,7 @@ ostream &operator<< (ostream &ostr, tbank &bank)
     ostr << right << setw(10) << (*bank.accounts[i]).get_accountNumber()
          << " | " << left << setw(30) << (*bank.accounts[i]).get_customer()->get_name()
          << " | " << right << setw(14) << (*bank.accounts[i]).get_amountBookings()
-         << " | " << (*bank.accounts[i]).get_money(); 
+         << " | ";(*bank.accounts[i]).get_money().print();
     ostr << flush;
   }
   return ostr;

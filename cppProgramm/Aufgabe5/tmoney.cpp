@@ -1,10 +1,12 @@
 #include <string>
+#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <fstream>
 using namespace std;
 
 #include "tmoney.h"
+#include "tfixeddepositaccount.h"
 
 /* Allgemeiner Konstruktor */
 tmoney::tmoney(double amount, string currency)
@@ -70,6 +72,11 @@ ostream &operator<< (ostream &ostr, tmoney &money)
 {
   ostr << right << fixed << setprecision(2) <<  money.amount << " " << money.currency << flush;
   return ostr;
+}
+
+void tmoney::print()
+{
+  cout << right << fixed << setprecision(2) <<  amount << " " << currency << flush;
 }
 
 void tmoney::sub(tmoney amountChange)

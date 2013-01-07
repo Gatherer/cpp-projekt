@@ -23,6 +23,8 @@ class tmoney
 
     void add(tmoney amountChange);
     void sub(tmoney amountChange);
+    
+    void print();
   
   private:
     double amount;
