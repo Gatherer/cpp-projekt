@@ -19,6 +19,12 @@ class ttransaction
     virtual ~ttransaction();
 
     /* set() und get() Methoden */
+    string get_BLZ() {return bankleitzahl;}
+    string get_ContraBLZ() {return contraBankleitzahl;}
+    string get_AccountNr() {return accountNumber;}
+    string get_ContraAccountNr() {return contraAccountNumber;}
+    string get_Text() {return buchungstext;}
+    double get_amount2() {return bookingAmount.get_amount();}
 
   private:
     std::string accountNumber;
@@ -27,6 +33,8 @@ class ttransaction
     std::string contraBankleitzahl;
     std::string buchungstext;
     tmoney bookingAmount;
+
+    friend ostream &operator<< (ostream &ostr, ttransaction &transaction);
 };
 
 #endif /* TTRANSACTION_H_ */

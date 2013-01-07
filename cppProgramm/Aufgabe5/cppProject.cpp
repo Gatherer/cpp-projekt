@@ -36,6 +36,13 @@ void enter()
   system("cls");
 }
 
+tbank *get_bank(tbank *B1, tbank *B2, string BLZ)
+{
+   if ((B1->get_bankleitzahl()).compare(BLZ) == 0)       return B1;
+   if ((B2->get_bankleitzahl()).compare(BLZ) == 0)       return B2;
+   return NULL;
+}
+
 int main()
 {
    //  fuer Windows
@@ -62,26 +69,38 @@ int main()
    taccount  *Konto2     = new tsavingsaccount(&Kunde2, Bank1, "9876543120", "0101", 1.5);
    taccount  *Konto3     = new tfixeddepositaccount(&Kunde1, Bank2, "111333555", "1357", tmoney(100.0), 1.5);
    taccount  *Konto4     = new tcurrentaccount(&Kunde3, Bank2, "999777555", "4444", tmoney(200.0));
-  
+  cout << "Konto1 " << Geldquelle << endl;
+  cout << "Konto1 " << Konto1 << endl;
+  cout << "Konto2 " << Konto2 << endl;
+  cout << "Konto3 " << Konto3 << endl;
+  cout << "Konto4 " << Konto4 << endl;
+
+
    ttransactionlist TL(Dateiname);
-/* 
    for (unsigned i = 0; i < TL.get_TransactionsCount(); i++)
    {
       taccount *Konto = NULL, *Gegenkonto = NULL;
+
       Konto           = NULL;
-      Bank            = getBank(Bank1, Bank2, TL[i].getBLZ());
-      if (Bank)
-         Konto        = Bank->getAccount(TL[i].getAccountNr());
+      Bank            = get_bank(Bank1, Bank2, TL[i].get_BLZ());
+      cout << "Bank 1 " << Bank << endl;
+      if (Bank) 
+      Konto           = Bank->get_Account2(TL[i].get_AccountNr());
+      cout << "Konto " << Konto << endl;
+
       Gegenkonto      = NULL;
-      Bank            = getBank(Bank1, Bank2, TL[i].getContraBLZ());
+      Bank            = get_bank(Bank1, Bank2, TL[i].get_ContraBLZ());
+      cout << "Bank 2 " << Bank << endl;
       if (Bank)
-         Gegenkonto   = Bank1->getAccount(TL[i].getContraAccountNr());
+         Gegenkonto   = Bank->get_Account2(TL[i].get_ContraAccountNr());
+      cout << "Gegenkonto " << Gegenkonto << endl;
+
       if (Konto && Gegenkonto)
-         tbooking *Buchung = new tbooking(TL[i].getAmount(), Konto, Gegenkonto, TL.getDate(), TL.getTime(), TL[i].getText());
+         tbooking *Buchung = new tbooking(TL[i].get_amount2(), Konto, Gegenkonto, TL.get_date(), TL.get_time(), TL[i].get_Text());
    }
-*/
+
    // Ausgaben:
-//   cout << "Transaktionsliste:" << endl << TL << endl;
+   cout << "Transaktionsliste:" << endl << TL << endl;
    cout << "Kunde 1:" << endl << Kunde1 << endl;
    enter();
    cout << "Kunde 2:" << endl << Kunde2 << endl;
@@ -95,13 +114,13 @@ int main()
 
    for (int i = 0; i < Bank1->get_amountBankaccounts(); i++)
    {
-      (Bank1->getAccount(i))->printAccountStatement();
+      (Bank1->get_Account(i))->printAccountStatement();
       cout << endl;
       enter();
    }
    for (int i = 0; i < Bank2->get_amountBankaccounts(); i++)
    {
-      (Bank2->getAccount(i))->printAccountStatement();
+      (Bank2->get_Account(i))->printAccountStatement();
       cout << endl;
       enter();
    }
@@ -112,11 +131,4 @@ int main()
    enter();
    return 0;
 }
-/*
-tbank *getBank(TBank *B1, TBank *B2, string BLZ)
-{
-   if ((B1->getBLZ()).compare(BLZ) == 0)       return B1;
-   if ((B2->getBLZ()).compare(BLZ) == 0)       return B2;
-   return NULL;
-}
-*/
+

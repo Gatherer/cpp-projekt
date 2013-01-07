@@ -21,15 +21,14 @@ class tmoney
     double get_amount() { return amount; }
     string get_currency() { return currency; }
 
-    /* print Methoden */
-    void print();
-
     void add(tmoney amountChange);
     void sub(tmoney amountChange);
   
   private:
     double amount;
     std::string currency;
+
+    friend ostream &operator<< (ostream &ostr, tmoney &money);
 };
 
 #endif /* TMONEY_H_ */

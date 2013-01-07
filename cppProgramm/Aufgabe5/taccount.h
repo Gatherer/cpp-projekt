@@ -31,7 +31,7 @@ class taccount
 	/* set() und get() Methoden */
 	void set(tcustomer *customer, tbank *bank, std::string accountNumber, std::string pin);
   tcustomer* get_customer() { return customer; }
-    tmoney get_money() { return amount; }
+  tmoney get_money() { return amount; }
 	virtual tmoney get_possibleMoney() { return amount; }
 	string get_accountNumber() { return accountNumber; }
 	string get_pin() { return pin; }

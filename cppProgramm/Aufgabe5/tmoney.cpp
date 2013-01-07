@@ -28,7 +28,6 @@ tmoney::tmoney(istream &istr)
       stringStop  = (zeile.find_last_of('<'));
       amount_new = (zeile.substr(stringStart, stringStop-stringStart));
       amount = atof(amount_new.c_str());
-      cout << zeile << endl;
       getline(istr, zeile, '\n');
     }
     else if(zeile.compare(6, 10, "<Currency>") == 0)
@@ -36,17 +35,15 @@ tmoney::tmoney(istream &istr)
       stringStart = (zeile.find_first_of('>')+1);
       stringStop  = (zeile.find_last_of('<'));
       currency = zeile.substr(stringStart, stringStop-stringStart);
-      cout << zeile << endl;
       getline(istr, zeile, '\n');
     }
     else if(zeile.compare(4, 8, "</Money>") == 0)
     {
-      cout << zeile << endl;
       break;
     }
     else
     {
-      cout << "error: Fehler im Dateiformat " << zeile << endl;
+      cout << "error: Fehler im Dateiformat [tmoney]" << zeile << endl;
       break;
     }
   }
@@ -69,10 +66,10 @@ void tmoney::set_amount(double amount)
   this -> amount = amount;
 }
 
-void tmoney::print()
+ostream &operator<< (ostream &ostr, tmoney &money)
 {
-  cout << right << fixed << setprecision(2) << setw(11) << amount << " " << currency << flush;
-//  cout << fixed << setprecision(2) << amount << " " << currency << flush;
+  ostr << right << fixed << setprecision(2) <<  money.amount << " " << money.currency << flush;
+  return ostr;
 }
 
 void tmoney::sub(tmoney amountChange)

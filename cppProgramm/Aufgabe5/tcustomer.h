@@ -19,7 +19,7 @@ class tcustomer
     tcustomer(std::string name, tdate birthday, std::string street, std::string housenumber, std::string zipcode, 
               std::string city);
 
-    /* Dekonstruktor */
+  /* Dekonstruktor */
 
 	/* set() und get() Methoden */
   
@@ -32,9 +32,6 @@ class tcustomer
     string get_zipcode() { return zipcode; }
     string get_city() { return city; }
     int get_amountAccounts() { return amountAccounts; } 
-
-	/* print Methoden */
-//  void print();
 
 	/* sonstige Methoden */
 	void addAmountAccounts();

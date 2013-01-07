@@ -26,30 +26,35 @@ ttransactionlist::ttransactionlist(char *dateiName)
   else
   {
     getline(datei, zeile, '\n');
-    while(!(datei.eof()))
+    if(zeile.compare(0, 17, "<Transactionlist>") == 0)
     {
-      if(zeile.compare(0, 17, "<Transactionlist>") == 0)
+      getline(datei, zeile, '\n');
+      while(!(datei.eof()))
       {
-        cout << zeile << endl;
-        getline(datei, zeile, '\n');
         if(zeile.compare(2, 13, "<Transaction>") == 0)
         {
-          cout << zeile << endl;
-          trans.resize(1);
-          ttransaction *t1 = new ttransaction(datei);
+          trans.resize(TransactionsCount);
+          TransactionsCount++;
+          trans.push_back(*(new ttransaction(datei)));
           getline(datei, zeile, '\n');
+        }
+        else if(zeile.compare(0, 18, "</Transactionlist>") == 0)
+        {
+          break;
         }
         else
         {
-          cout << "error: Fehler im Dateiformat " << zeile << endl;
+          cout << "error: Fehler im Dateiformat [ttransactionlist 1]" << zeile << endl;
           break;
         }
       }
-      else
-      {
-      cout << "error: Fehler im Dateiformat " << zeile << endl;
-      break;
-      }
+    }
+    if(zeile.compare(0, 18, "</Transactionlist>") == 0)
+    {
+    }
+    else
+    {
+      cout << "error: Fehler im Dateiformat [ttransactionlist 2]" << zeile << endl;
     }
     datei.close();
   }
@@ -60,3 +65,12 @@ ttransactionlist::~ttransactionlist()
  
 }
 
+ostream &operator<< (ostream &ostr, ttransactionlist &transactionL)
+{
+  for (unsigned i = 0; i < transactionL.TransactionsCount; i++)
+  {
+    ostr << "Transaction Nummer " << i+1 << ":" << endl;
+    ostr << (transactionL.trans.at(i)) << endl;
+  }
+  return ostr;
+}

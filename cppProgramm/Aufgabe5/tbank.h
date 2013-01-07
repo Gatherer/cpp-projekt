@@ -26,7 +26,22 @@ class tbank
     string get_bankName() { return bankName; }
     string get_bankleitzahl() { return bankleitzahl; }
     int get_amountBankaccounts() { return amountBankaccounts; }
-    taccount *getAccount(int i) {return accounts[i]; }
+    taccount *get_Account(int i) {return accounts[i]; }
+    // nervig das hier gemacht werden muss
+    taccount *get_Account2(string accNumber)
+    {
+      int k = amountBankaccounts;
+      int j = 0;
+      for(int i = 0; i < this->amountBankaccounts; i++)
+      {
+        if(accNumber == (*accounts[i]).get_accountNumber())
+        {
+          j = i;
+          break;
+        }
+      }
+      return accounts[j];
+    }
     
     /* print Methoden */
     void print();

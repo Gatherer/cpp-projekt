@@ -64,6 +64,6 @@ void tbooking::print()
 {
    cout << "Buchung kann nicht durchgeführt werden da die Deckung nicht ausreicht." << endl;
    cout << setfill(' ');
-   cout << "Wert: "; amount.print(); cout << " Absender: " << left << setw(20) << account->get_customer()->get_name() << " Empfänger: " 
+   cout << "Wert: " << amount << " Absender: " << left << setw(20) << account->get_customer()->get_name() << " Empfänger: " 
 	    << left << setw(20) << contraaccount->get_customer()->get_name()<< text << endl;
 }

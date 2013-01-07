@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+
+#include "tbank.h"
 #include "tdate.h"
 #include "ttime.h"
 #include "ttransaction.h"
@@ -23,17 +25,25 @@ class ttransactionlist
     virtual ~ttransactionlist();
 
     /* set() und get() Methoden */
-    int get_TransactionsCount();
+    unsigned get_TransactionsCount() {return TransactionsCount;}
+    tdate get_date() {return transactionDate;}
+    ttime get_time() {return transactionTime;}
     
+    ttransaction operator[] (unsigned i)
+    {
+      if((i >= 0) && (i < TransactionsCount))
+      { return trans.at(i); }
+      else
+      { return trans.at(i); }
+    }
+
   private:
     tdate transactionDate;
     ttime transactionTime;
     vector<ttransaction> trans;
-    int TransactionsCount;
+    unsigned TransactionsCount;
     
-//    friend ostream &operator<< (ostream &ostr, ttransaction &transa);
-    
-//    friend class taccount;
+    friend ostream &operator<< (ostream &ostr, ttransactionlist &transactionL);
 };
 
 #endif /* TTRANSACTIONLIST_H_ */
