@@ -69,12 +69,6 @@ int main()
    taccount  *Konto2     = new tsavingsaccount(&Kunde2, Bank1, "9876543120", "0101", 1.5);
    taccount  *Konto3     = new tfixeddepositaccount(&Kunde1, Bank2, "111333555", "1357", tmoney(100.0), 1.5);
    taccount  *Konto4     = new tcurrentaccount(&Kunde3, Bank2, "999777555", "4444", tmoney(200.0));
-  cout << "Konto1 " << Geldquelle << endl;
-  cout << "Konto1 " << Konto1 << endl;
-  cout << "Konto2 " << Konto2 << endl;
-  cout << "Konto3 " << Konto3 << endl;
-  cout << "Konto4 " << Konto4 << endl;
-
 
    ttransactionlist TL(Dateiname);
    for (unsigned i = 0; i < TL.get_TransactionsCount(); i++)
@@ -83,17 +77,13 @@ int main()
 
       Konto           = NULL;
       Bank            = get_bank(Bank1, Bank2, TL[i].get_BLZ());
-      cout << "Bank 1 " << Bank << endl;
       if (Bank) 
       Konto           = Bank->get_Account2(TL[i].get_AccountNr());
-      cout << "Konto " << Konto << endl;
 
       Gegenkonto      = NULL;
       Bank            = get_bank(Bank1, Bank2, TL[i].get_ContraBLZ());
-      cout << "Bank 2 " << Bank << endl;
       if (Bank)
          Gegenkonto   = Bank->get_Account2(TL[i].get_ContraAccountNr());
-      cout << "Gegenkonto " << Gegenkonto << endl;
 
       if (Konto && Gegenkonto)
          tbooking *Buchung = new tbooking(TL[i].get_amount2(), Konto, Gegenkonto, TL.get_date(), TL.get_time(), TL[i].get_Text());
@@ -101,6 +91,7 @@ int main()
 
    // Ausgaben:
    cout << "Transaktionsliste:" << endl << TL << endl;
+   enter();
    cout << "Kunde 1:" << endl << Kunde1 << endl;
    enter();
    cout << "Kunde 2:" << endl << Kunde2 << endl;

@@ -31,8 +31,8 @@ tfixeddepositaccount::~tfixeddepositaccount()
 void tfixeddepositaccount::printAccountStatement()
 {
   taccount::printAccountStatement();
-  cout << "max. Dispo:            "; tcurrentaccount::get_dispo().print(); cout << endl;
-  cout << "Zinssatz:                   " << tsavingsaccount::get_zinsen() << " %" << endl;
+  cout << "max. Dispo: " << setw(20) << right; tcurrentaccount::get_dispo().print(); cout << endl;
+  cout << "Zinssatz: " << setw(22) << right << tsavingsaccount::get_zinsen() << " %" << endl;
 }
 
 tmoney tfixeddepositaccount::get_possibleMoney()

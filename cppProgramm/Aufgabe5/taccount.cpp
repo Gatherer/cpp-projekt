@@ -133,7 +133,7 @@ void taccount::printAccountStatement()
         (*bookings[i]).set_printed();
         (*bookings[i]).get_date().print(); 
         cout << setfill(' ');
-        cout << " |"; (*bookings[i]).get_amount().print(); cout << " | " << left << setw(30) << (*bookings[i]).get_contraAccount()->get_customer()->get_name() << "| " << (*bookings[i]).get_text() << endl;
+        cout << " |" << setw(11) << right; (*bookings[i]).get_amount().print(); cout << " | " << left << setw(30) << (*bookings[i]).get_contraAccount()->get_customer()->get_name() << "| " << (*bookings[i]).get_text() << endl;
       }
     }
     else
@@ -145,7 +145,7 @@ void taccount::printAccountStatement()
         (*bookings[i]).set_printed();
         (*bookings[i]).get_date().print(); 
         cout << setfill(' ');
-        cout << " |"; (*bookings[i]).get_amount().print(); cout << " | " << left << setw(30) << (*bookings[i]).get_account()->get_customer()->get_name() << "| " << (*bookings[i]).get_text() << endl;
+        cout << " |" << setw(11) << right; (*bookings[i]).get_amount().print(); cout << " | " << left << setw(30) << (*bookings[i]).get_account()->get_customer()->get_name() << "| " << (*bookings[i]).get_text() << endl;
       }
     }
   }
@@ -161,5 +161,5 @@ void taccount::printAccountStatement()
        << setw(32) << "|"
        << setw(14) << "-" << endl;
   cout << setfill(' ');
-  cout << "aktueller Kontostand: " << amount << endl;
+  cout << "aktueller Kontostand: " << setw(10) << right << amount << endl;
 }

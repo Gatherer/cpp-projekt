@@ -42,7 +42,7 @@ ostream &operator<< (ostream &ostr, tcustomer &kunde)
     tmoney dummyMoney = (*kunde.accounts[i]).get_money();
     ostr << endl; 
     ostr << "- Kontonummer: " << setw(11) << right << (*kunde.accounts[i]).get_accountNumber() 
-         << " (Kontostand:"   << dummyMoney << ")" << flush;
+         << " (Kontostand:"   << setw(11) << right << dummyMoney << ")" << flush;
   }
   return ostr;
 }

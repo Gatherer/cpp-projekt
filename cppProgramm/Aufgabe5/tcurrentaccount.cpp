@@ -40,7 +40,7 @@ void tcurrentaccount::set_dispo(double amount)
 void tcurrentaccount::printAccountStatement()
 {
   taccount::printAccountStatement();
-  cout << "max. Dispo:            " << dispo << endl;
+  cout << "max. Dispo: " << setw(20) << right << dispo << endl;
 }
 
 tmoney tcurrentaccount::get_possibleMoney()

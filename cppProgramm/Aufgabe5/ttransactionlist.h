@@ -34,7 +34,7 @@ class ttransactionlist
       if((i >= 0) && (i < TransactionsCount))
       { return trans.at(i); }
       else
-      { return trans.at(i); }
+      { return trans.at(0); }
     }
 
   private:

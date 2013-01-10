@@ -39,7 +39,7 @@ void tsavingsaccount::set_zinsen(double zinsen)
 void tsavingsaccount::printAccountStatement()
 {
   taccount::printAccountStatement();
-  cout << "Zinssatz:                   " << zinsen << " %" << endl;
+  cout << "Zinssatz: " << setw(22) << right << zinsen << " %" << endl;
 }
 
 tmoney tsavingsaccount::get_possibleMoney()
