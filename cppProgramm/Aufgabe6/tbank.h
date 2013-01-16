@@ -6,6 +6,7 @@
 #include <string>
 
 #include "taccount.h"
+#include "tliste.h"
 
 /* Klassen fuer Vorwertsdeklaration bekannt machen */
 class taccount;
@@ -47,7 +48,7 @@ class tbank
     void print();
 
   private:
-    taccount *accounts[MAXBANKACCOUNTS];
+    Liste <taccount*> *accounts[MAXBANKACCOUNTS];
     std::string bankName;
     std::string bankleitzahl;
     int amountBankaccounts;

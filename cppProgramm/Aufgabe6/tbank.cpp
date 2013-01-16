@@ -6,6 +6,7 @@ using namespace std;
 #include "tbank.h"
 #include "tcustomer.h"
 #include "tmoney.h"
+#include "tliste.h"
 
 /* Allgemeiner Konstruktor */
 tbank::tbank(string bankName, string bankleitzahl)
