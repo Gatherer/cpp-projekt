@@ -17,7 +17,7 @@ tbank::tbank(string bankName, string bankleitzahl)
 /* Destruktor */
 tbank::~tbank()
 {
-  int k = amountBankaccounts;
+  int k = accounts.size();
   for (int i = 0; i < k; i++)
   {
     delete accounts[i];
@@ -28,14 +28,13 @@ void tbank::set(string bankName, string bankleitzahl)
 {
   this -> bankName = bankName;
   this -> bankleitzahl = bankleitzahl;
-  this -> amountBankaccounts = 0;
 }
 
 ostream &operator<< (ostream &ostr, tbank &bank)
 {
   ostr << bank.bankName << endl;
   ostr << "Bankleitzahl : " << bank.bankleitzahl << endl;
-  ostr << "Anzahl Konten: " << bank.amountBankaccounts << endl;
+  ostr << "Anzahl Konten: " << bank.accounts.size() << endl;
   ostr << "Kontenliste  : " << endl;
   
   ostr << setfill(' ');
@@ -49,10 +48,10 @@ ostream &operator<< (ostream &ostr, tbank &bank)
        << right << setw(17) << "|"
        << right << setw(16) << "";
   ostr << setfill(' ');
-  for (int i = 0; i < bank.amountBankaccounts; i++)
+  for (int i = 0; i < bank.accounts.size(); i++)
   {
     ostr << endl; 
-    ostr << right << setw(10) << (*bank.accounts[i]).get_accountNumber()
+    ostr << right << setw(10) << bank.accounts[i]->get_accountNumber()
          << " | " << left << setw(30) << (*bank.accounts[i]).get_customer()->get_name()
          << " | " << right << setw(14) << (*bank.accounts[i]).get_amountBookings()
          << " | " << setw(10) << right;(*bank.accounts[i]).get_money().print();
@@ -64,12 +63,10 @@ ostream &operator<< (ostream &ostr, tbank &bank)
 /* wird von taccount Dekonstruktor aufgerufen */
 void tbank::deleteBankAccount()
 {
-  amountBankaccounts--;
 }
 
 /* */
 void tbank::setBankaccount(taccount *account)
 {
-  this -> accounts[amountBankaccounts]  = account;
-  amountBankaccounts++;
+  this -> accounts.push_back(account);
 }

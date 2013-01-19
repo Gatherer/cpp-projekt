@@ -3,37 +3,37 @@ all: cppProject
 cppProject: tdate.o ttime.o ttransaction.o ttransactionlist.o tcurrentaccount.o tfixeddepositaccount.o tsavingsaccount.o tmoney.o tcustomer.o taccount.o tbank.o tbooking.o cppProject.o 
 	g++ tdate.o ttime.o ttransaction.o ttransactionlist.o tcurrentaccount.o tfixeddepositaccount.o tsavingsaccount.o tmoney.o tcustomer.o taccount.o tbank.o tbooking.o cppProject.o -o cppProject
 
-tcustomer.o: tcustomer.cpp tcustomer.h tdate.cpp tdate.h taccount.cpp taccount.h
+tcustomer.o: tcustomer.cpp tcustomer.h tdate.cpp tdate.h taccount.cpp taccount.h tliste.h
 	g++ -c tcustomer.cpp
 
-ttransactionlist.o: ttransactionlist.cpp ttransactionlist.h tdate.cpp tdate.h ttime.cpp ttime.h
+ttransactionlist.o: ttransactionlist.cpp ttransactionlist.h tdate.cpp tdate.h ttime.cpp ttime.h tliste.h
 	g++ -c ttransactionlist.cpp
 
-ttransaction.o: ttransaction.cpp ttransaction.h tmoney.cpp tmoney.h
+ttransaction.o: ttransaction.cpp ttransaction.h tmoney.cpp tmoney.h tliste.h
 	g++ -c ttransaction.cpp
 
-tbank.o: tbank.cpp tbank.h taccount.cpp taccount.h
+tbank.o: tbank.cpp tbank.h taccount.cpp taccount.h tliste.h
 	g++ -c tbank.cpp
 
-tbooking.o: tbooking.cpp tbooking.h taccount.cpp taccount.h tmoney.cpp tmoney.h ttime.cpp ttime.h tdate.cpp tdate.h
+tbooking.o: tbooking.cpp tbooking.h taccount.cpp taccount.h tmoney.cpp tmoney.h ttime.cpp ttime.h tdate.cpp tdate.h tliste.h
 	g++ -c tbooking.cpp
 
-tmoney.o: tmoney.cpp tmoney.h
+tmoney.o: tmoney.cpp tmoney.h tliste.h
 	g++ -c tmoney.cpp
 
-tdate.o: tdate.cpp tdate.h
+tdate.o: tdate.cpp tdate.h tliste.h
 	g++ -c tdate.cpp
 
-ttime.o: ttime.cpp ttime.h
+ttime.o: ttime.cpp ttime.h tliste.h
 	g++ -c ttime.cpp
 	
-tfixeddepositaccount.o: tfixeddepositaccount.cpp tfixeddepositaccount.h taccount.cpp taccount.h tcustomer.cpp tcustomer.h tmoney.cpp tmoney.h tbank.cpp tbank.h
+tfixeddepositaccount.o: tfixeddepositaccount.cpp tfixeddepositaccount.h taccount.cpp taccount.h tcustomer.cpp tcustomer.h tmoney.cpp tmoney.h tbank.cpp tbank.h tliste.h
 	g++ -c tfixeddepositaccount.cpp
 	
-taccount.o: taccount.cpp taccount.h tcustomer.cpp tcustomer.h tmoney.cpp tmoney.h tbank.cpp tbank.h
+taccount.o: taccount.cpp taccount.h tcustomer.cpp tcustomer.h tmoney.cpp tmoney.h tbank.cpp tbank.h tliste.h
 	g++ -c taccount.cpp
 
-tcurrentaccount.o: tcurrentaccount.cpp tcurrentaccount.h taccount.cpp taccount.h tcustomer.cpp tcustomer.h tmoney.cpp tmoney.h tbank.cpp tbank.h
+tcurrentaccount.o: tcurrentaccount.cpp tcurrentaccount.h taccount.cpp taccount.h tcustomer.cpp tcustomer.h tmoney.cpp tmoney.h tbank.cpp tbank.h tliste.h
 	g++ -c tcurrentaccount.cpp
 
 tsavingsaccount.o: tsavingsaccount.cpp tsavingsaccount.h taccount.cpp taccount.h tcustomer.cpp tcustomer.h tmoney.cpp tmoney.h tbank.cpp tbank.h

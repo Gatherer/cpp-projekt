@@ -1,8 +1,6 @@
 #ifndef TBANK_H_
 #define TBANK_H_
 
-#define MAXBANKACCOUNTS 100
-
 #include <string>
 
 #include "taccount.h"
@@ -26,16 +24,16 @@ class tbank
 
     string get_bankName() { return bankName; }
     string get_bankleitzahl() { return bankleitzahl; }
-    int get_amountBankaccounts() { return amountBankaccounts; }
+    int get_amountBankaccounts() { return accounts.size(); }
     taccount *get_Account(int i) {return accounts[i]; }
     // nervig das hier gemacht werden muss
     taccount *get_Account2(string accNumber)
     {
-      int k = amountBankaccounts;
+      int k = accounts.size();
       int j = 0;
-      for(int i = 0; i < this->amountBankaccounts; i++)
+      for(int i = 0; i < k; i++)
       {
-        if(accNumber == (*accounts[i]).get_accountNumber())
+        if(accNumber == accounts[i]->get_accountNumber())
         {
           j = i;
           break;
@@ -48,10 +46,9 @@ class tbank
     void print();
 
   private:
-    Liste <taccount*> *accounts[MAXBANKACCOUNTS];
+    Liste <taccount*> accounts;
     std::string bankName;
     std::string bankleitzahl;
-    int amountBankaccounts;
     
     friend ostream &operator<< (ostream &ostr, tbank &bank);
     

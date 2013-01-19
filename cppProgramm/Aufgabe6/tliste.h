@@ -1,7 +1,7 @@
 #ifndef tliste_h
 #define tliste_h tliste_h
-#include <cstddef>     // für NULL
-#include <cassert>     // für assert
+#include <cstddef>     // fuer NULL
+#include <cassert>     // fuer assert
 
 template<class T> class Liste
 {
@@ -24,11 +24,12 @@ template<class T> class Liste
       virtual ~Liste();       // Destruktor
 
       Liste& operator=(const Liste&);
+      T& operator[](int index);
 
       bool empty() const { return Anzahl == 0; }
       int size()   const { return Anzahl; }
 
-      // am Anfang bzw. Ende einfügen
+      // am Anfang bzw. Ende einfÃ¼gen
       void push_front(const T&);
       void push_back(const T&);
 
@@ -42,32 +43,9 @@ template<class T> class Liste
       T& back();
       const T& back() const;
 
-      /*
-      // ---------------------------------------------------
-      ttransaction operator[] (unsigned i)
-      {
-        Listenelement *temp = new Listenelement;
-        int counter = 0;
-        if (i == counter)
-        {
-          return this->Daten;
-        }
-        else
-        {
-          i++;
-        }
-
-        if((i >= 0) && (i < Anzahl))
-          { return trans.at(i); }
-        else
-          { return trans.at(0); }
-      }
-      // ---------------------------------------------------
-      */
-
       // ========================================
       // Jetzt kommt die geschachtelte
-      // Klasse für den Iterator:
+      // Klasse fÃ¼r den Iterator:
       class Iterator
       {
          private:
@@ -124,7 +102,7 @@ template<class T> class Liste
       Iterator end() const
       {  return Iterator(); } // NULL-Iterator
 
-      void erase(Iterator& pos) // Element löschen
+      void erase(Iterator& pos) // Element lÃ¶schen
       {
          if (pos.aktuell == Anfang)
          {
@@ -151,7 +129,7 @@ template<class T> class Liste
             }
       }
 
-      // Vor pos einfügen
+      // Vor pos einfÃ¼gen
       Iterator insert(Iterator pos, const T& Wert)
       {
          if (pos == begin())
@@ -206,10 +184,10 @@ inline Liste<T>::~Liste()
 template<class T>           // Zuweisungsoperator
 inline Liste<T>& Liste<T>::operator=(const Liste<T>& L)
 {
-   if (this != &L) // Selbstzuweisung ausschließen
+   if (this != &L) // Selbstzuweisung ausschlieÃŸen
    {
       while(!empty())
-         pop_front(); // alles löschen
+         pop_front(); // alles lÃ¶schen
       // ... und neu aufbauen
       Listenelement *temp = L.Ende;
       while(temp)
@@ -308,5 +286,19 @@ inline const T& Liste<T>::back() const
    assert(!empty());
    return Ende->Daten;
 }
+
+template<class T>
+inline T& Liste<T>::operator[] (int index) 
+{
+  Listenelement *temp = Anfang;
+  
+  for(int zaehler = 0; zaehler != index; zaehler++)
+  {
+    temp = temp->Next;
+  }
+  
+  return temp->Daten;
+}
+
 
 #endif

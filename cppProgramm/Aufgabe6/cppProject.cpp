@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : cppProjekt.cpp
-// Author      : Glatte, Thomas; Gruender Jessica, Schlabeck Mirko
-// Version     : 0.5
+// Author      : Glatte, Thomas; Gruender Jessica
+// Version     : 0.6
 // Description : main file for our c++ projekt
 //============================================================================
 
@@ -31,10 +31,10 @@ void enter()
   cout << "Press enter to continue...";
   cin.get();
 //  fuer Linux
-//    system("clear");
+    system("clear");
 
 // fuer Windows
-  system("cls");
+//  system("cls");
 }
 
 tbank *get_bank(tbank *B1, tbank *B2, string BLZ)
@@ -47,10 +47,10 @@ tbank *get_bank(tbank *B1, tbank *B2, string BLZ)
 int main()
 {
    //  fuer Windows
-   char *Dateiname = (char *) "C:/Users/Thomas/Documents/GitHub/cpp-projekt/cppProgramm/Aufgabe5/transaction.list";
+   // char *Dateiname = (char *) "C:/Users/Thomas/Documents/GitHub/cpp-projekt/cppProgramm/Aufgabe5/transaction.list";
    
    //  fuer Linux
- //  char *Dateiname = (char *) "transaction.list";
+   char *Dateiname = (char *) "transaction.list";
 
    tdate Datum1(7, 7, 1977);
    tdate Datum2(8, 8, 1988);
@@ -75,12 +75,12 @@ int main()
    for (unsigned i = 0; i < TL.get_TransactionsCount(); i++)
    {
       taccount *Konto = NULL, *Gegenkonto = NULL;
-
+      
       Konto           = NULL;
       Bank            = get_bank(Bank1, Bank2, TL[i].get_BLZ());
       if (Bank) 
       Konto           = Bank->get_Account2(TL[i].get_AccountNr());
-
+      
       Gegenkonto      = NULL;
       Bank            = get_bank(Bank1, Bank2, TL[i].get_ContraBLZ());
       if (Bank)
